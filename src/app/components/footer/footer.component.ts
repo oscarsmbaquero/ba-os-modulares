@@ -7,7 +7,7 @@ import { CookieService } from '../../services/cookie';
   selector: 'app-footer',
   standalone: true,
   imports: [RouterLink, MatIconModule],
-  templateUrl: './footer.html',
+  templateUrl: './footer.component.html',
 })
 export class FooterComponent {
   private cookieService = inject(CookieService);

@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-navbar',
   standalone: true,
   imports: [RouterLink, RouterLinkActive, MatIconModule],
-  templateUrl: './navbar.html'
+  templateUrl: './navbar.component.html'
 })
 export class NavbarComponent {
   isMenuOpen = false;

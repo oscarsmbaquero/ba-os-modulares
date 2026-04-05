@@ -9,8 +9,8 @@ import { animate } from 'motion';
   selector: 'app-cookie-banner',
   standalone: true,
   imports: [CommonModule, FormsModule, MatIconModule],
-  templateUrl: './cookie-banner.html',
-  styleUrl: 'cookie-banner.css'
+  templateUrl: './cookie-banner.component.html',
+  styleUrl: './cookie-banner.component.css'
 })
 export class CookieBannerComponent implements AfterViewInit {
   cookieService = inject(CookieService);

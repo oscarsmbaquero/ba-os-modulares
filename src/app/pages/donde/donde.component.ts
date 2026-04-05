@@ -7,7 +7,7 @@ import { SeoService } from '../../services/seo';
   selector: 'app-donde',
   standalone: true,
   imports: [RouterLink, MatIconModule],
-  templateUrl: './donde.html'
+  templateUrl: './donde.component.html'
 })
 export class DondeComponent implements OnInit {
   private seoService = inject(SeoService);

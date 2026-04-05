@@ -1,14 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
-import { SeoService } from '../../services/seo';
-
-@Component({
-  selector: 'app-como',
-  standalone: true,
-  imports: [RouterLink, MatIconModule],
-  template: `
-    <div class="min-h-screen bg-surface">
+ <div class="min-h-screen bg-surface">
       <!-- Hero Section -->
       <div class="relative bg-gradient-to-br from-primary to-primary-container text-white overflow-hidden">
         <div class="absolute inset-0 opacity-20">
@@ -178,17 +168,3 @@ import { SeoService } from '../../services/seo';
         </div>
       </div>
     </div>
-  `
-})
-export class ComoComponent implements OnInit {
-  private seoService = inject(SeoService);
-
-  ngOnInit() {
-    this.seoService.updateMetadata({
-      title: 'Cómo Trabajamos — Metodología Industrializada',
-      description: 'Descubra el proceso 2IBM: desde el diseño BIM hasta la instalación Plug & Play en obra. Eficiencia y control total del proceso.',
-      keywords: 'proceso 2IBM, metodología construcción modular, diseño BIM, fabricación industrializada, logística construcción',
-      type: 'website'
-    });
-  }
-}

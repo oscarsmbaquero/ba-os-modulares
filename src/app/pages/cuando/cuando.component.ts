@@ -7,7 +7,7 @@ import { SeoService } from '../../services/seo';
   selector: 'app-cuando',
   standalone: true,
   imports: [RouterLink, MatIconModule],
-  templateUrl: './cuando.html'
+  templateUrl: './cuando.component.html'
 })
 export class CuandoComponent implements OnInit {
   private seoService = inject(SeoService);
