@@ -1,0 +1,240 @@
+import { Component, inject, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { SeoService } from '../../services/seo';
+
+@Component({
+  selector: 'app-que',
+  standalone: true,
+  imports: [RouterLink, MatIconModule],
+  template: `
+    <div class="min-h-screen bg-surface">
+      <!-- Hero Section -->
+      <div class="relative bg-gradient-to-br from-primary to-primary-container text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+          <img src="https://picsum.photos/seed/modular-bath-detail/1920/1080?blur=2" alt="Detalle baño modular" referrerpolicy="no-referrer" class="w-full h-full object-cover mix-blend-overlay" />
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+          <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-on-tertiary-container rounded-sm mb-8">
+              <span class="text-[0.65rem] font-bold text-white tracking-widest uppercase">Catálogo de Productos</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 !text-white leading-[1.1] tracking-tight">
+              SOLUCIONES <br/>
+              MODULARES <br/>
+              <span class="text-on-tertiary-container uppercase">A MEDIDA.</span>
+            </h1>
+            <p class="text-lg text-slate-300 leading-relaxed max-w-xl mb-10">
+              Diseñamos y fabricamos núcleos húmedos industrializados que se adaptan a cualquier requerimiento arquitectónico. Calidad certificada, precisión milimétrica y acabados de alta gama para proyectos de gran escala.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#sectores" class="text-[0.65rem] font-bold text-white uppercase tracking-widest border border-white/20 px-4 py-2 hover:bg-white hover:text-primary transition-colors">Ver Sectores</a>
+              <a href="#tecnico" class="text-[0.65rem] font-bold text-white uppercase tracking-widest border border-white/20 px-4 py-2 hover:bg-white hover:text-primary transition-colors">Especificaciones</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Catálogo de Sectores -->
+      <div id="sectores" class="py-24 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-primary mb-4 uppercase tracking-wide">ESPECIALIZACIÓN POR SECTOR</h2>
+            <div class="w-12 h-0.5 bg-on-tertiary-container"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Sector Hospitality -->
+            <div class="group bg-surface-container-lowest border border-outline-variant/20 shadow-ambient overflow-hidden flex flex-col">
+              <div class="aspect-[16/9] overflow-hidden">
+                <img src="https://picsum.photos/seed/hotel-bathroom/800/450" alt="Sector Hospitality" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div class="p-10 flex-grow">
+                <h3 class="text-2xl font-display font-bold text-primary mb-4 uppercase tracking-widest">Sector Hospitality</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed mb-6">
+                  Hoteles de 4 y 5 estrellas, resorts y apartamentos turísticos. Acabados de lujo, integración de domótica y máximo confort acústico para garantizar la mejor experiencia al huésped.
+                </p>
+                <ul class="space-y-3 text-xs font-bold tracking-widest uppercase text-on-tertiary-container">
+                  <li class="flex items-center gap-2"><mat-icon class="material-symbols-outlined text-sm w-4 h-4">check_circle</mat-icon> Acabados Premium</li>
+                  <li class="flex items-center gap-2"><mat-icon class="material-symbols-outlined text-sm w-4 h-4">check_circle</mat-icon> Aislamiento Acústico Superior</li>
+                  <li class="flex items-center gap-2"><mat-icon class="material-symbols-outlined text-sm w-4 h-4">check_circle</mat-icon> Diseño Personalizado</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Sector Residencial -->
+            <div class="group bg-surface-container-lowest border border-outline-variant/20 shadow-ambient overflow-hidden flex flex-col">
+              <div class="aspect-[16/9] overflow-hidden">
+                <img src="https://picsum.photos/seed/residential-modular/800/450" alt="Sector Residencial" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div class="p-10 flex-grow">
+                <h3 class="text-2xl font-display font-bold text-primary mb-4 uppercase tracking-widest">Sector Residencial</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed mb-6">
+                  Build to Rent (BTR), Coliving, Residencias de Estudiantes y VPO. Soluciones optimizadas para la máxima rentabilidad y durabilidad en proyectos de alta rotación.
+                </p>
+                <ul class="space-y-3 text-xs font-bold tracking-widest uppercase text-on-tertiary-container">
+                  <li class="flex items-center gap-2"><mat-icon class="material-symbols-outlined text-sm w-4 h-4">check_circle</mat-icon> Alta Durabilidad</li>
+                  <li class="flex items-center gap-2"><mat-icon class="material-symbols-outlined text-sm w-4 h-4">check_circle</mat-icon> Optimización de Costes</li>
+                  <li class="flex items-center gap-2"><mat-icon class="material-symbols-outlined text-sm w-4 h-4">check_circle</mat-icon> Cumplimiento Normativo VPO</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Sector Sanitario -->
+            <div class="group bg-surface-container-lowest border border-outline-variant/20 shadow-ambient overflow-hidden flex flex-col">
+              <div class="aspect-[16/9] overflow-hidden">
+                <img src="https://picsum.photos/seed/hospital-modular/800/450" alt="Sector Sanitario" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div class="p-10 flex-grow">
+                <h3 class="text-2xl font-display font-bold text-primary mb-4 uppercase tracking-widest">Sector Sanitario</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed mb-6">
+                  Hospitales, clínicas y centros de salud. Diseños que priorizan la higiene, la accesibilidad total y el cumplimiento estricto de normativas sanitarias vigentes.
+                </p>
+                <ul class="space-y-3 text-xs font-bold tracking-widest uppercase text-on-tertiary-container">
+                  <li class="flex items-center gap-2"><mat-icon class="material-symbols-outlined text-sm w-4 h-4">check_circle</mat-icon> Accesibilidad Total</li>
+                  <li class="flex items-center gap-2"><mat-icon class="material-symbols-outlined text-sm w-4 h-4">check_circle</mat-icon> Materiales Antibacterianos</li>
+                  <li class="flex items-center gap-2"><mat-icon class="material-symbols-outlined text-sm w-4 h-4">check_circle</mat-icon> Mantenimiento Simplificado</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Otros Sectores -->
+            <div class="group bg-surface-container-lowest border border-outline-variant/20 shadow-ambient overflow-hidden flex flex-col">
+              <div class="aspect-[16/9] overflow-hidden">
+                <img src="https://picsum.photos/seed/prison-modular/800/450" alt="Otros Sectores" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div class="p-10 flex-grow">
+                <h3 class="text-2xl font-display font-bold text-primary mb-4 uppercase tracking-widest">Otros Sectores</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed mb-6">
+                  Centros penitenciarios, oficinas corporativas y centros deportivos. Módulos de alta seguridad y resistencia diseñados para entornos de uso intensivo.
+                </p>
+                <ul class="space-y-3 text-xs font-bold tracking-widest uppercase text-on-tertiary-container">
+                  <li class="flex items-center gap-2"><mat-icon class="material-symbols-outlined text-sm w-4 h-4">check_circle</mat-icon> Alta Seguridad</li>
+                  <li class="flex items-center gap-2"><mat-icon class="material-symbols-outlined text-sm w-4 h-4">check_circle</mat-icon> Resistencia Antivandálica</li>
+                  <li class="flex items-center gap-2"><mat-icon class="material-symbols-outlined text-sm w-4 h-4">check_circle</mat-icon> Versatilidad Funcional</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dossier Técnico (Resumen) -->
+      <div id="tecnico" class="py-24 bg-surface-container-low border-y border-outline-variant/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 class="text-3xl md:text-4xl font-display font-bold text-primary mb-8 uppercase tracking-wide leading-tight">
+                INGENIERÍA Y <br/>
+                ESPECIFICACIONES TÉCNICAS
+              </h2>
+              <p class="text-sm text-on-surface-variant leading-relaxed mb-12">
+                Nuestros baños modulares son el resultado de años de I+D aplicado a la construcción industrializada. Cada componente ha sido seleccionado por su rendimiento, durabilidad y facilidad de integración.
+              </p>
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-bold tracking-widest uppercase text-on-tertiary-container">Estructura</span>
+                  <p class="text-sm font-display font-bold text-primary">Acero S275JR</p>
+                  <p class="text-xs text-on-surface-variant">Bastidor autoportante de alta resistencia con tratamiento anticorrosión.</p>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-bold tracking-widest uppercase text-on-tertiary-container">Cerramientos</span>
+                  <p class="text-sm font-display font-bold text-primary">TABIHAUS®</p>
+                  <p class="text-xs text-on-surface-variant">Paneles de alta densidad con excelentes propiedades térmicas y acústicas.</p>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-bold tracking-widest uppercase text-on-tertiary-container">Instalaciones</span>
+                  <p class="text-sm font-display font-bold text-primary">REBT / CTE</p>
+                  <p class="text-xs text-on-surface-variant">Cumplimiento estricto de normativas eléctricas y de edificación vigentes.</p>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs font-bold tracking-widest uppercase text-on-tertiary-container">Acabados</span>
+                  <p class="text-sm font-display font-bold text-primary">Personalización Total</p>
+                  <p class="text-xs text-on-surface-variant">Desde cerámicas de gran formato hasta griferías de diseño y domótica.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-primary p-12 relative overflow-hidden text-white">
+              <div class="absolute inset-0 blueprint-grid opacity-20"></div>
+              <div class="relative z-10">
+                <h3 class="text-xl font-display font-bold mb-8 uppercase tracking-widest border-b border-on-tertiary-container pb-4 inline-block">Ventajas Técnicas</h3>
+                <ul class="space-y-6">
+                  <li class="flex items-start gap-4">
+                    <div class="w-6 h-6 bg-on-tertiary-container text-white flex items-center justify-center shrink-0 mt-1">
+                      <mat-icon class="material-symbols-outlined text-sm w-4 h-4">verified</mat-icon>
+                    </div>
+                    <div>
+                      <p class="text-sm font-bold uppercase tracking-wide mb-1">Estanqueidad Garantizada</p>
+                      <p class="text-xs text-slate-300">Pruebas hidrostáticas de presión en fábrica antes del envío.</p>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-4">
+                    <div class="w-6 h-6 bg-on-tertiary-container text-white flex items-center justify-center shrink-0 mt-1">
+                      <mat-icon class="material-symbols-outlined text-sm w-4 h-4">volume_off</mat-icon>
+                    </div>
+                    <div>
+                      <p class="text-sm font-bold uppercase tracking-wide mb-1">Aislamiento Acústico</p>
+                      <p class="text-xs text-slate-300">Desacoplamiento elástico de la estructura para evitar puentes acústicos.</p>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-4">
+                    <div class="w-6 h-6 bg-on-tertiary-container text-white flex items-center justify-center shrink-0 mt-1">
+                      <mat-icon class="material-symbols-outlined text-sm w-4 h-4">bolt</mat-icon>
+                    </div>
+                    <div>
+                      <p class="text-sm font-bold uppercase tracking-wide mb-1">Plug & Play</p>
+                      <p class="text-xs text-slate-300">Conexiones rápidas de fontanería y electricidad listas para obra.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="py-24 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-3xl md:text-4xl font-display font-bold text-primary mb-10 uppercase tracking-wide">¿NECESITA UNA SOLUCIÓN ESPECÍFICA?</h2>
+          <div class="flex flex-wrap justify-center gap-6">
+            <a routerLink="/contacto" class="px-10 py-4 bg-primary text-white font-bold text-sm uppercase tracking-widest hover:bg-primary-container transition-all flex items-center gap-2 group">
+              Solicitar Estudio Técnico
+              <mat-icon class="material-symbols-outlined text-on-tertiary-container group-hover:translate-x-1 transition-transform">architecture</mat-icon>
+            </a>
+            <a routerLink="/como" class="px-10 py-4 bg-surface border border-outline-variant/30 text-primary font-bold text-sm uppercase tracking-widest hover:bg-surface-container-low transition-all flex items-center gap-2 group">
+              Ver Proceso de Trabajo
+              <mat-icon class="material-symbols-outlined text-on-tertiary-container group-hover:translate-x-1 transition-transform">settings_suggest</mat-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  `
+})
+export class QueComponent implements OnInit {
+  private seoService = inject(SeoService);
+
+  ngOnInit() {
+    this.seoService.updateMetadata({
+      title: 'Soluciones Modulares a Medida — Catálogo',
+      description: 'Descubra nuestras soluciones de baños modulares para hoteles, residencias y hospitales. Calidad certificada y diseño personalizado.',
+      keywords: 'baños hoteles, baños residencias, baños hospitales, núcleos húmedos industrializados, catálogo 2IBM',
+      type: 'website'
+    });
+
+    this.seoService.setStructuredData({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      'serviceType': 'Fabricación de Baños Modulares',
+      'provider': {
+        '@type': 'Organization',
+        'name': '2IBM'
+      },
+      'areaServed': 'ES',
+      'description': 'Diseño y fabricación de núcleos húmedos industrializados para diversos sectores.'
+    });
+  }
+}

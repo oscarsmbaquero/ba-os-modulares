@@ -1,0 +1,194 @@
+import { Component, inject, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { SeoService } from '../../services/seo';
+
+@Component({
+  selector: 'app-como',
+  standalone: true,
+  imports: [RouterLink, MatIconModule],
+  template: `
+    <div class="min-h-screen bg-surface">
+      <!-- Hero Section -->
+      <div class="relative bg-gradient-to-br from-primary to-primary-container text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+          <img src="https://picsum.photos/seed/factory-process/1920/1080?blur=2" alt="Proceso de fabricación" referrerpolicy="no-referrer" class="w-full h-full object-cover mix-blend-overlay" />
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+          <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-on-tertiary-container rounded-sm mb-8">
+              <span class="text-[0.65rem] font-bold text-white tracking-widest uppercase">Metodología Industrializada</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 !text-white leading-[1.1] tracking-tight">
+              EL PROCESO 2IBM: <br/>
+              DE LA FÁBRICA <br/>
+              <span class="text-on-tertiary-container uppercase">A LA OBRA.</span>
+            </h1>
+            <p class="text-lg text-slate-300 leading-relaxed max-w-xl mb-10">
+              Un flujo de trabajo optimizado que elimina las incertidumbres de la construcción tradicional. Ingeniería de precisión, fabricación controlada y logística eficiente para garantizar el éxito de su proyecto.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#metodologia" class="text-[0.65rem] font-bold text-white uppercase tracking-widest border border-white/20 px-4 py-2 hover:bg-white hover:text-primary transition-colors">Ver Metodología</a>
+              <a href="#beneficios" class="text-[0.65rem] font-bold text-white uppercase tracking-widest border border-white/20 px-4 py-2 hover:bg-white hover:text-primary transition-colors">Ver Beneficios</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- El Proceso Step-by-Step -->
+      <div id="metodologia" class="py-24 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="mb-16">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-primary mb-4 uppercase tracking-wide">NUESTRA METODOLOGÍA</h2>
+            <div class="w-12 h-0.5 bg-on-tertiary-container"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Step 1 -->
+            <div class="relative group">
+              <div class="text-8xl font-display font-bold text-outline-variant/20 absolute -top-10 -left-4 group-hover:text-on-tertiary-container/10 transition-colors">01</div>
+              <div class="relative z-10 pt-8">
+                <h3 class="text-xl font-display font-bold text-primary mb-4 uppercase tracking-widest border-b border-on-tertiary-container pb-2 inline-block">Ingeniería y Diseño</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed">
+                  Modelado BIM y CAD detallado. Definimos cada milímetro del módulo, desde la estructura hasta la última grifería, asegurando la integración total con el proyecto arquitectónico.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="relative group">
+              <div class="text-8xl font-display font-bold text-outline-variant/20 absolute -top-10 -left-4 group-hover:text-on-tertiary-container/10 transition-colors">02</div>
+              <div class="relative z-10 pt-8">
+                <h3 class="text-xl font-display font-bold text-primary mb-4 uppercase tracking-widest border-b border-on-tertiary-container pb-2 inline-block">Fabricación Industrial</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed">
+                  Producción en entorno controlado. Ensamblaje de estructura, instalaciones y acabados bajo rigurosos estándares de calidad industrial, sin interferencias climáticas ni retrasos de obra.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="relative group">
+              <div class="text-8xl font-display font-bold text-outline-variant/20 absolute -top-10 -left-4 group-hover:text-on-tertiary-container/10 transition-colors">03</div>
+              <div class="relative z-10 pt-8">
+                <h3 class="text-xl font-display font-bold text-primary mb-4 uppercase tracking-widest border-b border-on-tertiary-container pb-2 inline-block">Logística y Transporte</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed">
+                  Protección total y transporte especializado. Cada módulo viaja perfectamente embalado y asegurado, llegando a la obra en el momento exacto de su instalación (Just-in-Time).
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="relative group">
+              <div class="text-8xl font-display font-bold text-outline-variant/20 absolute -top-10 -left-4 group-hover:text-on-tertiary-container/10 transition-colors">04</div>
+              <div class="relative z-10 pt-8">
+                <h3 class="text-xl font-display font-bold text-primary mb-4 uppercase tracking-widest border-b border-on-tertiary-container pb-2 inline-block">Instalación y Conexión</h3>
+                <p class="text-sm text-on-surface-variant leading-relaxed">
+                  Sistema Plug & Play. Izado directo a planta y conexión inmediata a las redes generales del edificio. Un baño completo operativo en cuestión de horas, no semanas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beneficios de la Industrialización -->
+      <div id="beneficios" class="py-24 bg-surface-container-low border-y border-outline-variant/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+              <div class="aspect-square overflow-hidden shadow-ambient border border-outline-variant/30">
+                <img src="https://picsum.photos/seed/modular-crane/1000/1000" alt="Instalación con grúa" referrerpolicy="no-referrer" class="w-full h-full object-cover grayscale" />
+              </div>
+              <div class="absolute -bottom-8 -right-8 bg-primary text-white p-10 shadow-ambient max-w-xs">
+                <div class="text-5xl font-display font-bold mb-2">70%</div>
+                <div class="text-[0.65rem] font-bold tracking-widest uppercase">Ahorro de tiempo<br/>frente a obra tradicional</div>
+              </div>
+            </div>
+            
+            <div>
+              <h2 class="text-3xl md:text-4xl font-display font-bold text-primary mb-8 uppercase tracking-wide leading-tight">
+                POR QUÉ ELEGIR <br/>
+                LA CONSTRUCCIÓN INDUSTRIALIZADA
+              </h2>
+              <div class="space-y-8">
+                <div class="flex gap-6">
+                  <div class="w-12 h-12 bg-surface-container-lowest flex items-center justify-center shrink-0 shadow-sm border border-outline-variant/20">
+                    <mat-icon class="text-on-tertiary-container">speed</mat-icon>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-display font-bold text-primary mb-2 uppercase tracking-widest">Reducción de Plazos</h3>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                      La fabricación paralela a la cimentación y estructura del edificio permite acortar el cronograma global de la obra de forma drástica.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex gap-6">
+                  <div class="w-12 h-12 bg-surface-container-lowest flex items-center justify-center shrink-0 shadow-sm border border-outline-variant/20">
+                    <mat-icon class="text-on-tertiary-container">verified</mat-icon>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-display font-bold text-primary mb-2 uppercase tracking-widest">Calidad Garantizada</h3>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                      Entorno industrial con controles de calidad exhaustivos. Acabados uniformes y perfectos en todas las unidades del proyecto.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex gap-6">
+                  <div class="w-12 h-12 bg-surface-container-lowest flex items-center justify-center shrink-0 shadow-sm border border-outline-variant/20">
+                    <mat-icon class="text-on-tertiary-container">payments</mat-icon>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-display font-bold text-primary mb-2 uppercase tracking-widest">Costes Cerrados</h3>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                      Eliminamos las desviaciones presupuestarias típicas de la obra. Precio cerrado por unidad desde la firma del contrato.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex gap-6">
+                  <div class="w-12 h-12 bg-surface-container-lowest flex items-center justify-center shrink-0 shadow-sm border border-outline-variant/20">
+                    <mat-icon class="text-on-tertiary-container">eco</mat-icon>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-display font-bold text-primary mb-2 uppercase tracking-widest">Sostenibilidad Real</h3>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">
+                      Reducción drástica de residuos en obra, menor consumo de agua y energía, y optimización de materiales en fábrica.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="py-24 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-3xl md:text-4xl font-display font-bold text-primary mb-10 uppercase tracking-wide">¿QUIERE OPTIMIZAR SU PRÓXIMA OBRA?</h2>
+          <div class="flex flex-wrap justify-center gap-6">
+            <a routerLink="/contacto" class="px-10 py-4 bg-primary text-white font-bold text-sm uppercase tracking-widest hover:bg-primary-container transition-all flex items-center gap-2 group">
+              Solicitar Planificación
+              <mat-icon class="text-on-tertiary-container group-hover:translate-x-1 transition-transform">event_available</mat-icon>
+            </a>
+            <a routerLink="/que" class="px-10 py-4 bg-surface border border-outline-variant/30 text-primary font-bold text-sm uppercase tracking-widest hover:bg-surface-container-low transition-all flex items-center gap-2 group">
+              Ver Catálogo de Soluciones
+              <mat-icon class="text-on-tertiary-container group-hover:translate-x-1 transition-transform">arrow_forward</mat-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  `
+})
+export class ComoComponent implements OnInit {
+  private seoService = inject(SeoService);
+
+  ngOnInit() {
+    this.seoService.updateMetadata({
+      title: 'Cómo Trabajamos — Metodología Industrializada',
+      description: 'Descubra el proceso 2IBM: desde el diseño BIM hasta la instalación Plug & Play en obra. Eficiencia y control total del proceso.',
+      keywords: 'proceso 2IBM, metodología construcción modular, diseño BIM, fabricación industrializada, logística construcción',
+      type: 'website'
+    });
+  }
+}

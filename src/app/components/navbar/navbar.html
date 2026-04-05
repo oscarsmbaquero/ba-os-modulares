@@ -1,0 +1,62 @@
+ <nav class="fixed top-0 z-50 w-full bg-surface/90 backdrop-blur-md border-b border-outline-variant/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between">
+          <div class="flex items-center">
+            <a routerLink="/" class="flex items-center gap-3 group">
+              <img src="https://res.cloudinary.com/facturas/image/upload/q_auto/f_auto/v1775166149/Web%20Extremodular/Blue_Waves_Surfing_Club_Logo_2_q0fhhp.png" alt="2IBM Logo" class="h-16 w-auto object-contain" referrerpolicy="no-referrer" />
+            </a>
+          </div>
+          
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center h-full space-x-2">
+            @for (item of navItems; track item.path) {
+              <a [routerLink]="item.path" 
+                 routerLinkActive="border-b-2 border-on-tertiary-container text-primary font-semibold"
+                 [routerLinkActiveOptions]="{exact: true}"
+                 class="px-3 h-full flex items-center text-xs font-medium text-on-surface-variant hover:text-primary transition-colors border-b-2 border-transparent uppercase tracking-wider gap-1.5">
+                <mat-icon class="material-symbols-outlined text-sm w-4 h-4">{{ item.icon }}</mat-icon>
+                {{ item.label }}
+              </a>
+            }
+            <div class="flex items-center h-full ml-6">
+              <a routerLink="/contacto" 
+                 class="px-6 py-2.5 text-xs font-bold text-on-primary bg-primary hover:bg-primary-container transition-colors uppercase tracking-wider flex items-center gap-2">
+                <mat-icon class="material-symbols-outlined text-sm w-4 h-4">mail</mat-icon>
+                Contacto
+              </a>
+            </div>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="flex items-center md:hidden">
+            <button (click)="toggleMenu()" class="p-2 rounded text-on-surface-variant hover:bg-surface-container-low">
+              <mat-icon class="material-symbols-outlined">{{ isMenuOpen ? 'close' : 'menu' }}</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      @if (isMenuOpen) {
+        <div class="md:hidden bg-surface-container-lowest shadow-ambient border-b border-outline-variant/30">
+          <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            @for (item of navItems; track item.path) {
+              <a [routerLink]="item.path"
+                 (click)="isMenuOpen = false"
+                 routerLinkActive="bg-surface-container-low text-primary font-semibold border-l-2 border-on-tertiary-container"
+                 [routerLinkActiveOptions]="{exact: true}"
+                 class="flex items-center gap-3 px-3 py-2 text-sm font-medium text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors border-l-2 border-transparent uppercase tracking-wider">
+                <mat-icon class="material-symbols-outlined text-lg">{{ item.icon }}</mat-icon>
+                {{ item.label }}
+              </a>
+            }
+            <a routerLink="/contacto"
+               (click)="isMenuOpen = false"
+               class="flex items-center justify-center gap-2 px-3 py-3 mt-4 text-sm font-bold text-center text-on-primary bg-primary uppercase tracking-wider">
+              <mat-icon class="material-symbols-outlined text-lg">mail</mat-icon>
+              Contacto
+            </a>
+          </div>
+        </div>
+      }
+    </nav>

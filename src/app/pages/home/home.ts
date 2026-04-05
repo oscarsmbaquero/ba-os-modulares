@@ -1,0 +1,221 @@
+import { Component, inject, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { SeoService } from '../../services/seo';
+
+@Component({
+  selector: 'app-home',
+  standalone: true,
+  imports: [RouterLink, MatIconModule],
+  template: `
+    <div class="min-h-screen bg-surface">
+      <!-- Hero Section -->
+      <div class="relative bg-gradient-to-br from-primary to-primary-container text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+          <img src="https://res.cloudinary.com/facturas/image/upload/q_auto/f_auto/v1775163879/Web%20Extremodular/bano_embalado_gimho6.png" alt="Construcción Industrializada" referrerpolicy="no-referrer" class="w-full h-full object-cover mix-blend-overlay" />
+        </div>
+        
+        <!-- Location Tag -->
+        <div class="absolute bottom-8 right-8 z-20 hidden lg:block">
+          <div class="flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md border border-white/10">
+            <mat-icon class="material-symbols-outlined text-on-tertiary-container text-sm w-4 h-4">location_on</mat-icon>
+            <span class="text-[0.65rem] font-bold tracking-widest uppercase text-white/80">Plasencia, Cáceres · España</span>
+          </div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+          <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-on-tertiary-container rounded-sm mb-8">
+              <span class="text-[0.65rem] font-bold text-white tracking-widest uppercase">Construcción Industrializada</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 !text-white leading-[1.1] tracking-tight">
+              LA CONSTRUCCIÓN <br/>
+              DEL FUTURO <br/>
+              <span class="text-on-tertiary-container uppercase">EMPIEZA EN FÁBRICA.</span>
+            </h1>
+            <p class="text-lg text-slate-300 leading-relaxed max-w-xl mb-10">
+              Fabricamos baños modulares completos en entorno industrial controlado. Eficiencia, calidad y precisión industrial al servicio de la construcción moderna. Soluciones que optimizan tiempos, costes y resultados finales para promotoras, constructoras e inversores del mercado español.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a routerLink="/que" class="px-8 py-4 bg-primary text-white font-bold text-sm uppercase tracking-widest hover:bg-primary-container transition-all border border-primary-container flex items-center gap-2 group">
+                Ver Catálogo de Productos
+                <mat-icon class="material-symbols-outlined text-on-tertiary-container group-hover:translate-x-1 transition-transform">grid_view</mat-icon>
+              </a>
+              <a routerLink="/contacto" class="px-8 py-4 bg-transparent text-white font-bold text-sm uppercase tracking-widest hover:bg-white/5 transition-all border border-white/20 flex items-center gap-2 group">
+                Solicitar Presupuesto
+                <mat-icon class="material-symbols-outlined text-on-tertiary-container group-hover:translate-x-1 transition-transform">request_quote</mat-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="relative border-t border-white/10 bg-black/20 backdrop-blur-sm">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+              <div class="flex flex-col">
+                <span class="text-4xl font-display font-bold text-on-tertiary-container mb-1">70%</span>
+                <span class="text-[0.65rem] font-bold tracking-widest uppercase text-white/60">Reducción de tiempos de obra</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-4xl font-display font-bold text-on-tertiary-container mb-1">100%</span>
+                <span class="text-[0.65rem] font-bold tracking-widest uppercase text-white/60">Control de Calidad en fábrica</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-4xl font-display font-bold text-on-tertiary-container mb-1">30+</span>
+                <span class="text-[0.65rem] font-bold tracking-widest uppercase text-white/60">Años de experiencia combinada</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sobre Nosotros -->
+      <div class="py-24 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+              <div class="inline-flex items-center gap-2 px-3 py-1 bg-on-tertiary-container/10 rounded-sm mb-6">
+                <span class="text-[0.65rem] font-bold text-on-tertiary-container tracking-widest uppercase">Sobre Nosotros</span>
+              </div>
+              <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-primary mb-8 leading-tight">
+                EMPRESA ESPAÑOLA LÍDER EN BAÑOS MODULARES INDUSTRIALIZADOS.
+              </h2>
+              <p class="text-lg text-on-surface-variant leading-relaxed mb-8">
+                2IBM es una empresa española dedicada a la fabricación de baños modulares completos, nacida con el objetivo de transformar el proceso tradicional de construcción mediante industrialización, control de calidad y rapidez de ejecución. Fundada por un equipo multidisciplinar con más de 30 años de experiencia combinada en construcción, fabricación y gestión de obra.
+              </p>
+              
+              <div class="relative pl-8 border-l-2 border-on-tertiary-container py-2 mb-8">
+                <p class="text-xl font-display font-bold text-primary italic">
+                  "Transformamos la obra tradicional en una línea de montaje de alta precisión."
+                </p>
+              </div>
+              
+              <a routerLink="/quienes" class="inline-flex items-center gap-2 text-sm font-bold text-on-tertiary-container uppercase tracking-widest hover:text-primary transition-colors group">
+                Conocer nuestra historia
+                <mat-icon class="material-symbols-outlined text-sm w-4 h-4 group-hover:translate-x-1 transition-transform">history_edu</mat-icon>
+              </a>
+            </div>
+            
+            <div class="relative">
+              <div class="absolute -inset-4 bg-surface-container-low -z-10 blueprint-grid opacity-20"></div>
+              <div class="bg-surface p-2 shadow-ambient border border-outline-variant/20">
+                <img src="https://picsum.photos/seed/factory-assembly/800/1000" alt="Planta de Montaje — Plasencia, Cáceres" referrerpolicy="no-referrer" class="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700" />
+              </div>
+              <div class="absolute bottom-6 left-6 bg-primary text-white px-4 py-2 text-[0.65rem] font-bold tracking-widest uppercase">
+                Planta de Montaje — Plasencia, Cáceres
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- El Proceso 2IBM -->
+      <div class="py-24 bg-surface-container-low border-y border-outline-variant/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="mb-16 text-center">
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-primary mb-4 uppercase tracking-wide">EL PROCESO 2IBM</h2>
+            <div class="w-12 h-0.5 bg-on-tertiary-container mx-auto"></div>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Step 1 -->
+            <div class="bg-surface-container-lowest p-8 shadow-ambient border border-outline-variant/20 relative overflow-hidden group">
+              <div class="absolute -right-4 -top-4 text-8xl font-display font-bold text-outline-variant opacity-5 transition-colors">01</div>
+              <h3 class="text-lg font-display font-bold text-primary mb-4 uppercase tracking-wide">Diseño CAD/BIM</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">
+                Modelado 3D integral de fontanería, electricidad y acabados. Adaptación milimétrica a los planos del proyecto.
+              </p>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="bg-surface-container-lowest p-8 shadow-ambient border border-outline-variant/20 relative overflow-hidden group">
+              <div class="absolute -right-4 -top-4 text-8xl font-display font-bold text-outline-variant opacity-5 transition-colors">02</div>
+              <h3 class="text-lg font-display font-bold text-primary mb-4 uppercase tracking-wide">Estructura</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">
+                Bastidor metálico perimetral en acero S275JR. Soldadura por personal cualificado y protección anticorrosión en dos manos.
+              </p>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="bg-surface-container-lowest p-8 shadow-ambient border border-outline-variant/20 relative overflow-hidden group">
+              <div class="absolute -right-4 -top-4 text-8xl font-display font-bold text-outline-variant opacity-5 transition-colors">03</div>
+              <h3 class="text-lg font-display font-bold text-primary mb-4 uppercase tracking-wide">Equipamiento</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">
+                Instalación de fontanería, electricidad, revestimientos y sanitarios en entorno industrial controlado.
+              </p>
+            </div>
+            
+            <!-- Step 4 -->
+            <div class="bg-surface-container-lowest p-8 shadow-ambient border border-outline-variant/20 relative overflow-hidden group">
+              <div class="absolute -right-4 -top-4 text-8xl font-display font-bold text-outline-variant opacity-5 transition-colors">04</div>
+              <h3 class="text-lg font-display font-bold text-primary mb-4 uppercase tracking-wide">Plug & Play</h3>
+              <p class="text-sm text-on-surface-variant leading-relaxed">
+                Transporte especializado y conexión inmediata en obra. El baño listo en horas, sin gremios adicionales.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="py-24 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="bg-gradient-to-br from-primary to-primary-container p-12 lg:p-20 relative overflow-hidden">
+            <div class="absolute inset-0 blueprint-pattern opacity-10"></div>
+            <div class="relative z-10 max-w-3xl">
+              <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-sm mb-8">
+                <span class="text-[0.65rem] font-bold text-on-tertiary-container tracking-widest uppercase">Soporte Especializado</span>
+              </div>
+              <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-8 leading-tight">
+                ¿NECESITA ESPECIFICACIONES TÉCNICAS O UN PRESUPUESTO? HABLE CON NUESTRO EQUIPO.
+              </h2>
+              <p class="text-lg text-slate-300 mb-10 leading-relaxed">
+                Nuestro equipo de profesionales especializados le atenderá personalmente para estudiar las necesidades específicas de su proyecto y proponerle la solución óptima que maximice su rentabilidad, cumpla sus plazos y garantice la máxima calidad. Respuesta garantizada en menos de 24 horas laborables.
+              </p>
+              <a routerLink="/contacto" class="px-8 py-4 bg-on-tertiary-container text-white font-bold text-sm uppercase tracking-widest hover:bg-white hover:text-primary transition-all inline-flex items-center gap-2 group">
+                Contactar con un Experto
+                <mat-icon class="material-symbols-outlined text-sm w-4 h-4 group-hover:translate-x-1 transition-transform">support_agent</mat-icon>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `
+})
+export class HomeComponent implements OnInit {
+  private seoService = inject(SeoService);
+
+  ngOnInit() {
+    this.seoService.updateMetadata({
+      title: 'Construcción Industrializada de Baños Modulares',
+      description: 'Fabricamos baños modulares completos en entorno industrial controlado. Eficiencia, calidad y precisión industrial para promotoras e inversores en España.',
+      keywords: 'baños modulares, construcción industrializada, núcleos húmedos, 2IBM, Plasencia, Cáceres, construcción modular España',
+      type: 'website'
+    });
+
+    this.seoService.setStructuredData({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      'name': '2IBM — Industrial Ibérica de Baños Modulares',
+      'url': 'https://2ibm.es',
+      'logo': 'https://2ibm.es/favicon.svg',
+      'description': 'Líderes en construcción modular de baños industriales de alta precisión.',
+      'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': 'C/ Alfonso Camargo, 16',
+        'addressLocality': 'Plasencia',
+        'addressRegion': 'Cáceres',
+        'postalCode': '10600',
+        'addressCountry': 'ES'
+      },
+      'contactPoint': {
+        '@type': 'ContactPoint',
+        'telephone': '+34 927 41 00 00',
+        'contactType': 'customer service',
+        'email': 'info@2ibm.es'
+      }
+    });
+  }
+}
