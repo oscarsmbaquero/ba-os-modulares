@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve --port=3000 --host=0.0.0.0 --allowed-hosts all",
     "dev": "cross-env ng serve --port=3000 --host=0.0.0.0 --allowed-hosts all --define=\"GEMINI_API_KEY='${GEMINI_API_KEY}'\" ${DISABLE_HMR:+--live-reload=false}",
-    "build": "ng build",
+    "build": "node create-env.mjs && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
