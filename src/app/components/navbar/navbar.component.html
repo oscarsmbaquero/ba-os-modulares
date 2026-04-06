@@ -13,7 +13,7 @@
       <div class="hidden md:flex items-center h-full space-x-2">
         @for (item of navItems; track item.path) {
         <a [routerLink]="item.path"
-          routerLinkActive="border-b-2 border-on-tertiary-container text-primary font-semibold"
+          routerLinkActive="border-b-2 border-on-tertiary-container text-primary font-semibold decoration-on-tertiary-container underline underline-offset-5"
           [routerLinkActiveOptions]="{exact: true}"
           class="px-3 h-full flex items-center text-xs font-medium text-on-surface-variant hover:text-primary transition-colors border-b-2 border-transparent uppercase tracking-wider gap-1.5">
           <mat-icon class="material-symbols-outlined text-sm w-4 h-4">{{ item.icon }}</mat-icon>
