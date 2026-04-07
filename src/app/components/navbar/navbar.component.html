@@ -10,7 +10,7 @@
       </div>
 
       <!-- Desktop Menu -->
-      <div class="hidden md:flex items-center h-full space-x-2">
+      <div class="hidden lg:flex items-center h-full space-x-2">
         @for (item of navItems; track item.path) {
         <a [routerLink]="item.path"
           routerLinkActive="border-b-2 border-on-tertiary-container text-primary font-semibold decoration-on-tertiary-container underline underline-offset-5"
@@ -30,7 +30,7 @@
       </div>
 
       <!-- Mobile Menu Button -->
-      <div class="flex items-center md:hidden">
+      <div class="flex items-center lg:hidden">
         <button (click)="toggleMenu()"
           class="p-2 rounded-lg hover:bg-surface-container-low w-10 h-10 flex flex-col justify-center items-center gap-[5px]">
           <span class="block bg-on-surface rounded-full transition-all duration-300 origin-center" [style.width.px]="22"
@@ -49,7 +49,7 @@
 
   <!-- Mobile Menu -->
   @if (isMenuOpen) {
-  <div class="md:hidden bg-surface-container-lowest shadow-ambient border-b border-outline-variant/30">
+  <div class="lg:hidden bg-surface-container-lowest shadow-ambient border-b border-outline-variant/30">
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
       @for (item of navItems; track item.path) {
       <a [routerLink]="item.path" (click)="isMenuOpen = false"
