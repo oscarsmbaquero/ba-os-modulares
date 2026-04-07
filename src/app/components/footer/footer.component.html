@@ -74,8 +74,8 @@
       class="mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[0.65rem] text-outline border-t border-outline-variant/30">
       <p>&copy; {{ getYear() }} 2IBM Industrial Ibérica de Baños Modulares. Todos los derechos reservados.</p>
       <div class="flex gap-6">
-        <a href="#" class="hover:text-primary transition-colors uppercase tracking-widest">Aviso Legal</a>
-        <a href="#" class="hover:text-primary transition-colors uppercase tracking-widest">Privacidad</a>
+        <a routerLink="/aviso-legal" class="hover:text-primary transition-colors uppercase tracking-widest">Aviso Legal</a>
+        <a routerLink="/privacidad" class="hover:text-primary transition-colors uppercase tracking-widest">Privacidad</a>
         <button (click)="manageCookies()"
           class="hover:text-primary transition-colors uppercase tracking-widest">Gestionar Cookies</button>
       </div>

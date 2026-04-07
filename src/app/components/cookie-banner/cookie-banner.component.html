@@ -1,5 +1,5 @@
-  @if (!cookieService.consentGiven()) {
-      <div #bannerContainer class="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:max-w-sm z-[100] bg-surface-container-lowest/95 backdrop-blur-xl border border-outline-variant/30 shadow-ambient p-6 md:p-8 rounded-2xl overflow-hidden opacity-0">
+    @if (!cookieService.consentGiven() || cookieService.openFromFooter()) {
+      <div #bannerContainer class="fixed bottom-6 left-6 right-6 md:left-auto md:right-8 md:max-w-sm z-[100] bg-surface-container-lowest/95 backdrop-blur-xl border border-outline-variant/30 shadow-ambient p-6 md:p-8 rounded-2xl overflow-hidden">
         <div class="absolute top-0 left-0 w-1 h-full bg-on-tertiary-container"></div>
         
         <div class="flex items-start gap-4 mb-6">
@@ -14,7 +14,7 @@
           </div>
         </div>
 
-        @if (showSettings()) {
+        @if (showSettings() || cookieService.openFromFooter()) {
           <div class="space-y-3 mb-6 py-4 border-y border-outline-variant/20 animate-in fade-in slide-in-from-top-2 duration-300">
             <div class="flex items-center justify-between p-2 rounded-lg bg-surface/50">
               <div>
@@ -77,7 +77,7 @@
                     class="px-4 py-3 bg-primary text-white text-[0.6rem] font-bold uppercase tracking-widest hover:bg-primary-container transition-colors">
               Guardar
             </button>
-            <button (click)="showSettings.set(false)" 
+            <button (click)="goBack()" 
                     class="px-4 py-2 bg-surface border border-outline-variant/30 text-[0.6rem] font-bold text-primary uppercase tracking-widest hover:bg-surface-container-low transition-colors text-center">
               Volver
             </button>

@@ -37,4 +37,13 @@ export class CookieBannerComponent implements AfterViewInit {
   saveSettings() {
     this.cookieService.savePreferences(this.tempPrefs);
   }
+
+  goBack() {
+    if (this.cookieService.openFromFooter()) {
+      this.cookieService.closePreferencesPanel();
+      return;
+    }
+
+    this.showSettings.set(false);
+  }
 }

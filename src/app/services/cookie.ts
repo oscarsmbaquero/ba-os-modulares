@@ -15,6 +15,7 @@ export class CookieService {
   private platformId = inject(PLATFORM_ID);
   
   consentGiven = signal<boolean>(false);
+  openFromFooter = signal<boolean>(false);
   preferences = signal<CookiePreferences>({
     necessary: true,
     analytics: false,
@@ -43,9 +44,18 @@ export class CookieService {
   savePreferences(prefs: CookiePreferences) {
     this.preferences.set(prefs);
     this.consentGiven.set(true);
+    this.openFromFooter.set(false);
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem(this.STORAGE_KEY, JSON.stringify(prefs));
     }
+  }
+
+  openPreferencesPanel() {
+    this.openFromFooter.set(true);
+  }
+
+  closePreferencesPanel() {
+    this.openFromFooter.set(false);
   }
 
   acceptAll() {

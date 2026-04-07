@@ -30,6 +30,14 @@ export const routes: Routes = [
     path: 'contacto', 
     loadComponent: () => import('./pages/contacto/contacto.component').then(m => m.ContactoComponent) 
   },
+  {
+    path: 'aviso-legal',
+    loadComponent: () => import('./pages/aviso-legal/aviso-legal.component').then(m => m.AvisoLegalComponent)
+  },
+  {
+    path: 'privacidad',
+    loadComponent: () => import('./pages/privacidad/privacidad.component').then(m => m.PrivacidadComponent)
+  },
   { path: '**', redirectTo: '/home' }
 ];
 

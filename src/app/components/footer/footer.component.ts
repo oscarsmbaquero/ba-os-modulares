@@ -13,7 +13,7 @@ export class FooterComponent {
   private cookieService = inject(CookieService);
 
   manageCookies() {
-    this.cookieService.consentGiven.set(false);
+    this.cookieService.openPreferencesPanel();
   }
 
   getYear(): number {

@@ -1,7 +1,8 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { SeoService } from '../../services/seo';
+import { CounterAnimationService } from '../../services/counter-animation';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,11 @@ import { SeoService } from '../../services/seo';
 })
 export class HomeComponent implements OnInit {
   private seoService = inject(SeoService);
+  private counterAnimationService = inject(CounterAnimationService);
+
+  timeReduction = signal(0);
+  qualityControl = signal(0);
+  experienceYears = signal(0);
 
   ngOnInit() {
     this.seoService.updateMetadata({
@@ -42,5 +48,13 @@ export class HomeComponent implements OnInit {
         'email': 'info@2ibm.es'
       }
     });
+
+    this.startStatsCounters();
+  }
+
+  private startStatsCounters() {
+    this.counterAnimationService.animateTo(70, this.timeReduction);
+    this.counterAnimationService.animateTo(100, this.qualityControl);
+    this.counterAnimationService.animateTo(30, this.experienceYears);
   }
 }
