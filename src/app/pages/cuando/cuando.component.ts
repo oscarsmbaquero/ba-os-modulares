@@ -2,11 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { SeoService } from '../../services/seo';
+import { RevealDirective } from '../../directives/reveal.directive';
 
 @Component({
   selector: 'app-cuando',
   standalone: true,
-  imports: [RouterLink, MatIconModule],
+  imports: [RouterLink, MatIconModule, RevealDirective],
   templateUrl: './cuando.component.html'
 })
 export class CuandoComponent implements OnInit {

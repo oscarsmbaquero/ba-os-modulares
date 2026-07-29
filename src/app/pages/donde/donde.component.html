@@ -28,7 +28,7 @@
       <div id="ubicacion" class="py-24 bg-surface">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <div reveal revealDirection="right">
               <div class="mb-8">
                 <h2 class="text-3xl md:text-4xl font-display font-bold text-primary mb-4 uppercase tracking-wide">UBICACIÓN ESTRATÉGICA</h2>
                 <div class="w-12 h-0.5 bg-on-tertiary-container"></div>
@@ -55,7 +55,7 @@
               </div>
             </div>
             
-            <div class="relative">
+            <div class="relative" reveal revealDirection="left">
               <div class="aspect-[4/3] overflow-hidden shadow-ambient border border-outline-variant/30 grayscale">
                 <img src="https://picsum.photos/seed/plasencia-factory/800/600" alt="Fábrica en Plasencia" referrerpolicy="no-referrer" class="w-full h-full object-cover" />
               </div>
@@ -80,7 +80,7 @@
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Logistics Card 1 -->
-            <div class="bg-surface p-10 border border-outline-variant/20 shadow-ambient group hover:border-on-tertiary-container transition-colors">
+            <div class="bg-surface p-10 border border-outline-variant/20 shadow-ambient group hover:border-on-tertiary-container transition-colors" reveal revealDirection="up">
               <div class="w-14 h-14 bg-surface-container-low text-primary flex items-center justify-center mb-8 group-hover:bg-on-tertiary-container group-hover:text-white transition-colors">
                 <mat-icon class="text-3xl">local_shipping</mat-icon>
               </div>
@@ -91,7 +91,7 @@
             </div>
 
             <!-- Logistics Card 2 -->
-            <div class="bg-surface p-10 border border-outline-variant/20 shadow-ambient group hover:border-on-tertiary-container transition-colors">
+            <div class="bg-surface p-10 border border-outline-variant/20 shadow-ambient group hover:border-on-tertiary-container transition-colors" reveal revealDirection="up" [revealDelay]="0.1">
               <div class="w-14 h-14 bg-surface-container-low text-primary flex items-center justify-center mb-8 group-hover:bg-on-tertiary-container group-hover:text-white transition-colors">
                 <mat-icon class="text-3xl">precision_manufacturing</mat-icon>
               </div>
@@ -102,7 +102,7 @@
             </div>
 
             <!-- Logistics Card 3 -->
-            <div class="bg-surface p-10 border border-outline-variant/20 shadow-ambient group hover:border-on-tertiary-container transition-colors">
+            <div class="bg-surface p-10 border border-outline-variant/20 shadow-ambient group hover:border-on-tertiary-container transition-colors" reveal revealDirection="up" [revealDelay]="0.2">
               <div class="w-14 h-14 bg-surface-container-low text-primary flex items-center justify-center mb-8 group-hover:bg-on-tertiary-container group-hover:text-white transition-colors">
                 <mat-icon class="text-3xl">bolt</mat-icon>
               </div>
@@ -117,7 +117,7 @@
 
       <!-- CTA Section -->
       <div class="py-24 bg-surface">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" reveal revealDirection="up">
           <h2 class="text-3xl md:text-4xl font-display font-bold text-primary mb-10 uppercase tracking-wide">¿TIENE UN PROYECTO EN MENTE?</h2>
           <div class="flex flex-wrap justify-center gap-6">
             <a routerLink="/contacto" class="px-10 py-4 bg-primary text-white font-bold text-sm uppercase tracking-widest hover:bg-primary-container transition-all flex items-center gap-2 group">

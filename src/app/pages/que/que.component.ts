@@ -2,11 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { SeoService } from '../../services/seo';
+import { RevealDirective } from '../../directives/reveal.directive';
 
 @Component({
   selector: 'app-que',
   standalone: true,
-  imports: [RouterLink, MatIconModule],
+  imports: [RouterLink, MatIconModule, RevealDirective],
   template: `
     <div class="min-h-screen bg-surface">
       <!-- Hero Section -->
@@ -45,7 +46,7 @@ import { SeoService } from '../../services/seo';
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Sector Hospitality -->
-            <div class="group bg-surface-container-lowest border border-outline-variant/20 shadow-ambient overflow-hidden flex flex-col">
+            <div class="group bg-surface-container-lowest border border-outline-variant/20 shadow-ambient overflow-hidden flex flex-col" reveal revealDirection="up">
               <div class="aspect-[16/9] overflow-hidden">
                 <img src="https://picsum.photos/seed/hotel-bathroom/800/450" alt="Sector Hospitality" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
@@ -63,7 +64,7 @@ import { SeoService } from '../../services/seo';
             </div>
 
             <!-- Sector Residencial -->
-            <div class="group bg-surface-container-lowest border border-outline-variant/20 shadow-ambient overflow-hidden flex flex-col">
+            <div class="group bg-surface-container-lowest border border-outline-variant/20 shadow-ambient overflow-hidden flex flex-col" reveal revealDirection="up" [revealDelay]="0.1">
               <div class="aspect-[16/9] overflow-hidden">
                 <img src="https://picsum.photos/seed/residential-modular/800/450" alt="Sector Residencial" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
@@ -81,7 +82,7 @@ import { SeoService } from '../../services/seo';
             </div>
 
             <!-- Sector Sanitario -->
-            <div class="group bg-surface-container-lowest border border-outline-variant/20 shadow-ambient overflow-hidden flex flex-col">
+            <div class="group bg-surface-container-lowest border border-outline-variant/20 shadow-ambient overflow-hidden flex flex-col" reveal revealDirection="up" [revealDelay]="0.2">
               <div class="aspect-[16/9] overflow-hidden">
                 <img src="https://picsum.photos/seed/hospital-modular/800/450" alt="Sector Sanitario" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
@@ -99,7 +100,7 @@ import { SeoService } from '../../services/seo';
             </div>
 
             <!-- Otros Sectores -->
-            <div class="group bg-surface-container-lowest border border-outline-variant/20 shadow-ambient overflow-hidden flex flex-col">
+            <div class="group bg-surface-container-lowest border border-outline-variant/20 shadow-ambient overflow-hidden flex flex-col" reveal revealDirection="up" [revealDelay]="0.3">
               <div class="aspect-[16/9] overflow-hidden">
                 <img src="https://picsum.photos/seed/prison-modular/800/450" alt="Otros Sectores" referrerpolicy="no-referrer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
               </div>
@@ -123,7 +124,7 @@ import { SeoService } from '../../services/seo';
       <div id="tecnico" class="py-24 bg-surface-container-low border-y border-outline-variant/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <div reveal revealDirection="right">
               <h2 class="text-3xl md:text-4xl font-display font-bold text-primary mb-8 uppercase tracking-wide leading-tight">
                 INGENIERÍA Y <br/>
                 ESPECIFICACIONES TÉCNICAS
@@ -156,7 +157,7 @@ import { SeoService } from '../../services/seo';
               </div>
             </div>
             
-            <div class="bg-primary p-12 relative overflow-hidden text-white">
+            <div class="bg-primary p-12 relative overflow-hidden text-white" reveal revealDirection="left">
               <div class="absolute inset-0 blueprint-grid opacity-20"></div>
               <div class="relative z-10">
                 <h3 class="text-xl font-display font-bold mb-8 uppercase tracking-widest border-b border-on-tertiary-container pb-4 inline-block">Ventajas Técnicas</h3>
@@ -197,7 +198,7 @@ import { SeoService } from '../../services/seo';
 
       <!-- CTA Section -->
       <div class="py-24 bg-surface">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" reveal revealDirection="up">
           <h2 class="text-3xl md:text-4xl font-display font-bold text-primary mb-10 uppercase tracking-wide">¿NECESITA UNA SOLUCIÓN ESPECÍFICA?</h2>
           <div class="flex flex-wrap justify-center gap-6">
             <a routerLink="/contacto" class="px-10 py-4 bg-primary text-white font-bold text-sm uppercase tracking-widest hover:bg-primary-container transition-all flex items-center gap-2 group">

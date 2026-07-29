@@ -3,11 +3,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { AiBotComponent } from '../../components/ai-bot.component/ai-bot.component';
 import { FormsModule } from '@angular/forms';
 import { SeoService } from '../../services/seo';
+import { RevealDirective } from '../../directives/reveal.directive';
 
 @Component({
   selector: 'app-contacto',
   standalone: true,
-  imports: [MatIconModule, AiBotComponent, FormsModule],
+  imports: [MatIconModule, AiBotComponent, FormsModule, RevealDirective],
   templateUrl: './contacto.component.html',
 })
 export class ContactoComponent implements OnInit {

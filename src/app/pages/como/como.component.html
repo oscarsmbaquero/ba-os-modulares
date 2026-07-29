@@ -35,7 +35,7 @@
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Step 1 -->
-            <div class="relative group">
+            <div class="relative group" reveal revealDirection="up">
               <div class="text-8xl font-display font-bold text-outline-variant/20 absolute -top-10 -left-4 group-hover:text-on-tertiary-container/10 transition-colors">01</div>
               <div class="relative z-10 pt-8">
                 <h3 class="text-xl font-display font-bold text-primary mb-4 uppercase tracking-widest border-b border-on-tertiary-container pb-2 inline-block">Ingeniería y Diseño</h3>
@@ -46,7 +46,7 @@
             </div>
 
             <!-- Step 2 -->
-            <div class="relative group">
+            <div class="relative group" reveal revealDirection="up" [revealDelay]="0.1">
               <div class="text-8xl font-display font-bold text-outline-variant/20 absolute -top-10 -left-4 group-hover:text-on-tertiary-container/10 transition-colors">02</div>
               <div class="relative z-10 pt-8">
                 <h3 class="text-xl font-display font-bold text-primary mb-4 uppercase tracking-widest border-b border-on-tertiary-container pb-2 inline-block">Fabricación Industrial</h3>
@@ -57,7 +57,7 @@
             </div>
 
             <!-- Step 3 -->
-            <div class="relative group">
+            <div class="relative group" reveal revealDirection="up" [revealDelay]="0.2">
               <div class="text-8xl font-display font-bold text-outline-variant/20 absolute -top-10 -left-4 group-hover:text-on-tertiary-container/10 transition-colors">03</div>
               <div class="relative z-10 pt-8">
                 <h3 class="text-xl font-display font-bold text-primary mb-4 uppercase tracking-widest border-b border-on-tertiary-container pb-2 inline-block">Logística y Transporte</h3>
@@ -68,7 +68,7 @@
             </div>
 
             <!-- Step 4 -->
-            <div class="relative group">
+            <div class="relative group" reveal revealDirection="up" [revealDelay]="0.3">
               <div class="text-8xl font-display font-bold text-outline-variant/20 absolute -top-10 -left-4 group-hover:text-on-tertiary-container/10 transition-colors">04</div>
               <div class="relative z-10 pt-8">
                 <h3 class="text-xl font-display font-bold text-primary mb-4 uppercase tracking-widest border-b border-on-tertiary-container pb-2 inline-block">Instalación y Conexión</h3>
@@ -85,7 +85,7 @@
       <div id="beneficios" class="py-24 bg-surface-container-low border-y border-outline-variant/30">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div class="relative">
+            <div class="relative" reveal revealDirection="right">
               <div class="aspect-square overflow-hidden shadow-ambient border border-outline-variant/30">
                 <img src="https://picsum.photos/seed/modular-crane/1000/1000" alt="Instalación con grúa" referrerpolicy="no-referrer" class="w-full h-full object-cover grayscale" />
               </div>
@@ -95,7 +95,7 @@
               </div>
             </div>
             
-            <div>
+            <div reveal revealDirection="left">
               <h2 class="text-3xl md:text-4xl font-display font-bold text-primary mb-8 uppercase tracking-wide leading-tight">
                 POR QUÉ ELEGIR <br/>
                 LA CONSTRUCCIÓN INDUSTRIALIZADA
@@ -153,7 +153,7 @@
 
       <!-- CTA Section -->
       <div class="py-24 bg-surface">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center" reveal revealDirection="up">
           <h2 class="text-3xl md:text-4xl font-display font-bold text-primary mb-10 uppercase tracking-wide">¿QUIERE OPTIMIZAR SU PRÓXIMA OBRA?</h2>
           <div class="flex flex-wrap justify-center gap-6">
             <a routerLink="/contacto" class="px-10 py-4 bg-primary text-white font-bold text-sm uppercase tracking-widest hover:bg-primary-container transition-all flex items-center gap-2 group">

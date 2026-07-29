@@ -43,15 +43,15 @@
         <div class="relative border-t border-white/10 bg-black/20 backdrop-blur-sm">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-              <div class="flex flex-col">
+              <div class="flex flex-col" reveal revealDirection="up">
                 <span class="text-4xl font-display font-bold text-on-tertiary-container mb-1">{{ timeReduction() }}%</span>
                 <span class="text-[0.65rem] font-bold tracking-widest uppercase text-white/60">Reducción de tiempos de obra</span>
               </div>
-              <div class="flex flex-col">
+              <div class="flex flex-col" reveal revealDirection="up" [revealDelay]="0.1">
                 <span class="text-4xl font-display font-bold text-on-tertiary-container mb-1">{{ qualityControl() }}%</span>
                 <span class="text-[0.65rem] font-bold tracking-widest uppercase text-white/60">Control de Calidad en fábrica</span>
               </div>
-              <div class="flex flex-col">
+              <div class="flex flex-col" reveal revealDirection="up" [revealDelay]="0.2">
                 <span class="text-4xl font-display font-bold text-on-tertiary-container mb-1">{{ experienceYears() }}+</span>
                 <span class="text-[0.65rem] font-bold tracking-widest uppercase text-white/60">Años de experiencia combinada</span>
               </div>
@@ -64,7 +64,7 @@
       <div class="py-24 bg-surface">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div class="relative">
+            <div class="relative" reveal revealDirection="right">
               <div class="inline-flex items-center gap-2 px-3 py-1 bg-on-tertiary-container/10 rounded-sm mb-6">
                 <span class="text-[0.65rem] font-bold text-on-tertiary-container tracking-widest uppercase">Sobre Nosotros</span>
               </div>
@@ -87,7 +87,7 @@
               </a>
             </div>
             
-            <div class="relative">
+            <div class="relative" reveal revealDirection="left">
               <div class="absolute -inset-4 bg-surface-container-low -z-10 blueprint-grid opacity-20"></div>
               <div class="bg-surface p-2 shadow-ambient border border-outline-variant/20">
                 <img src="https://res.cloudinary.com/dwczpxc0a/image/upload/q_auto/f_auto/v1775471464/Gemini_Generated_Image_4riok24riok24rio_vtjf3v.png" alt="Planta de Montaje — Plasencia, Cáceres" referrerpolicy="no-referrer" class="w-full h-auto hover: transition-all duration-700" />
@@ -110,34 +110,34 @@
           
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Step 1 -->
-            <div class="bg-surface-container-lowest p-8 shadow-ambient border border-outline-variant/20 relative overflow-hidden group">
+            <div class="bg-surface-container-lowest p-8 shadow-ambient border border-outline-variant/20 relative overflow-hidden group" reveal revealDirection="up">
               <div class="absolute -right-4 -top-4 text-8xl font-display font-bold text-outline-variant opacity-5 transition-colors">01</div>
               <h3 class="text-lg font-display font-bold text-primary mb-4 uppercase tracking-wide">Diseño CAD/BIM</h3>
               <p class="text-sm text-on-surface-variant leading-relaxed">
                 Modelado 3D integral de fontanería, electricidad y acabados. Adaptación milimétrica a los planos del proyecto.
               </p>
             </div>
-            
+
             <!-- Step 2 -->
-            <div class="bg-surface-container-lowest p-8 shadow-ambient border border-outline-variant/20 relative overflow-hidden group">
+            <div class="bg-surface-container-lowest p-8 shadow-ambient border border-outline-variant/20 relative overflow-hidden group" reveal revealDirection="up" [revealDelay]="0.1">
               <div class="absolute -right-4 -top-4 text-8xl font-display font-bold text-outline-variant opacity-5 transition-colors">02</div>
               <h3 class="text-lg font-display font-bold text-primary mb-4 uppercase tracking-wide">Estructura</h3>
               <p class="text-sm text-on-surface-variant leading-relaxed">
                 Bastidor metálico perimetral en acero S275JR. Soldadura por personal cualificado y protección anticorrosión en dos manos.
               </p>
             </div>
-            
+
             <!-- Step 3 -->
-            <div class="bg-surface-container-lowest p-8 shadow-ambient border border-outline-variant/20 relative overflow-hidden group">
+            <div class="bg-surface-container-lowest p-8 shadow-ambient border border-outline-variant/20 relative overflow-hidden group" reveal revealDirection="up" [revealDelay]="0.2">
               <div class="absolute -right-4 -top-4 text-8xl font-display font-bold text-outline-variant opacity-5 transition-colors">03</div>
               <h3 class="text-lg font-display font-bold text-primary mb-4 uppercase tracking-wide">Equipamiento</h3>
               <p class="text-sm text-on-surface-variant leading-relaxed">
                 Instalación de fontanería, electricidad, revestimientos y sanitarios en entorno industrial controlado.
               </p>
             </div>
-            
+
             <!-- Step 4 -->
-            <div class="bg-surface-container-lowest p-8 shadow-ambient border border-outline-variant/20 relative overflow-hidden group">
+            <div class="bg-surface-container-lowest p-8 shadow-ambient border border-outline-variant/20 relative overflow-hidden group" reveal revealDirection="up" [revealDelay]="0.3">
               <div class="absolute -right-4 -top-4 text-8xl font-display font-bold text-outline-variant opacity-5 transition-colors">04</div>
               <h3 class="text-lg font-display font-bold text-primary mb-4 uppercase tracking-wide">Plug & Play</h3>
               <p class="text-sm text-on-surface-variant leading-relaxed">
@@ -151,7 +151,7 @@
       <!-- CTA Section -->
       <div class="py-24 bg-surface">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="bg-gradient-to-br from-primary to-primary-container p-12 lg:p-20 relative overflow-hidden">
+          <div class="bg-gradient-to-br from-primary to-primary-container p-12 lg:p-20 relative overflow-hidden" reveal revealDirection="up">
             <div class="absolute inset-0 blueprint-pattern opacity-10"></div>
             <div class="relative z-10 max-w-3xl">
               <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/10 rounded-sm mb-8">

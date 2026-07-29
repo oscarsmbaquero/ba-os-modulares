@@ -3,11 +3,12 @@ import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { SeoService } from '../../services/seo';
 import { CounterAnimationService } from '../../services/counter-animation';
+import { RevealDirective } from '../../directives/reveal.directive';
 
 @Component({
   selector: 'app-quienes',
   standalone: true,
-  imports: [RouterLink, MatIconModule],
+  imports: [RouterLink, MatIconModule, RevealDirective],
   templateUrl: './quienes.component.html'
 })
 export class QuienesComponent implements OnInit {

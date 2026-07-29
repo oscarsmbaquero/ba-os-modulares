@@ -2,11 +2,12 @@ import { Component, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { SeoService } from '../../services/seo';
+import { RevealDirective } from '../../directives/reveal.directive';
 
 @Component({
   selector: 'app-como',
   standalone: true,
-  imports: [RouterLink, MatIconModule],
+  imports: [RouterLink, MatIconModule, RevealDirective],
   templateUrl: './como.component.html',
 })
 export class ComoComponent implements OnInit {
