@@ -1,15 +1,15 @@
     <div class="min-h-screen bg-surface">
       <!-- Hero Section -->
-      <div class="relative bg-gradient-to-br from-primary to-primary-container text-white overflow-hidden">
-        <div class="absolute inset-0 opacity-20">
-          <img src="https://res.cloudinary.com/facturas/image/upload/q_auto/f_auto/v1775163879/Web%20Extremodular/bano_embalado_gimho6.png" alt="Construcción Industrializada" referrerpolicy="no-referrer" class="w-full h-full object-cover mix-blend-overlay" />
+      <div class="relative bg-gradient-to-br from-surface-container-low to-surface-container text-on-surface overflow-hidden">
+        <div class="absolute inset-0 opacity-15">
+          <img src="https://res.cloudinary.com/facturas/image/upload/q_auto/f_auto/v1775163879/Web%20Extremodular/bano_embalado_gimho6.png" alt="Construcción Industrializada" referrerpolicy="no-referrer" class="w-full h-full object-cover mix-blend-multiply" />
         </div>
-        
+
         <!-- Location Tag -->
         <div class="absolute bottom-8 right-8 z-20 hidden lg:block">
-          <div class="flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md border border-white/10">
+          <div class="flex items-center gap-2 px-4 py-2 bg-surface-container-lowest/60 backdrop-blur-md border border-outline-variant/30">
             <mat-icon class="material-symbols-outlined text-on-tertiary-container text-sm w-4 h-4">location_on</mat-icon>
-            <span class="text-[0.65rem] font-bold tracking-widest uppercase text-white/80">Plasencia, Cáceres · España</span>
+            <span class="text-[0.65rem] font-bold tracking-widest uppercase text-on-surface-variant">Plasencia, Cáceres · España</span>
           </div>
         </div>
 
@@ -18,12 +18,12 @@
             <div class="inline-flex items-center gap-2 px-3 py-1 bg-on-tertiary-container rounded-sm mb-8">
               <span class="text-[0.65rem] font-bold text-white tracking-widest uppercase">Construcción Industrializada</span>
             </div>
-            <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 !text-white leading-[1.1] tracking-tight">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 !text-primary leading-[1.1] tracking-tight">
               LA CONSTRUCCIÓN <br/>
               DEL FUTURO <br/>
               <span class="text-on-tertiary-container uppercase">EMPIEZA EN FÁBRICA.</span>
             </h1>
-            <p class="text-lg text-slate-300 leading-relaxed max-w-xl mb-10">
+            <p class="text-lg text-on-surface-variant leading-relaxed max-w-xl mb-10">
               Fabricamos baños modulares completos en entorno industrial controlado. Eficiencia, calidad y precisión industrial al servicio de la construcción moderna. Soluciones que optimizan tiempos, costes y resultados finales para promotoras, constructoras e inversores del mercado español.
             </p>
             <div class="flex flex-wrap gap-4">
@@ -31,7 +31,7 @@
                 Ver Catálogo de Productos
                 <mat-icon class="material-symbols-outlined text-on-tertiary-container group-hover:translate-x-1 transition-transform">grid_view</mat-icon>
               </a>
-              <a routerLink="/contacto" class="px-8 py-4 bg-transparent text-white font-bold text-sm uppercase tracking-widest hover:bg-white/5 transition-all border border-white/20 flex items-center gap-2 group">
+              <a routerLink="/contacto" class="px-8 py-4 bg-transparent text-primary font-bold text-sm uppercase tracking-widest hover:bg-on-surface/5 transition-all border border-outline-variant flex items-center gap-2 group">
                 Solicitar Presupuesto
                 <mat-icon class="material-symbols-outlined text-on-tertiary-container group-hover:translate-x-1 transition-transform">request_quote</mat-icon>
               </a>
@@ -40,20 +40,20 @@
         </div>
 
         <!-- Stats Bar -->
-        <div class="relative border-t border-white/10 bg-black/20 backdrop-blur-sm">
+        <div class="relative border-t border-outline-variant/30 bg-surface-container-lowest/50 backdrop-blur-sm">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
               <div class="flex flex-col" reveal revealDirection="up">
                 <span class="text-4xl font-display font-bold text-on-tertiary-container mb-1">{{ timeReduction() }}%</span>
-                <span class="text-[0.65rem] font-bold tracking-widest uppercase text-white/60">Reducción de tiempos de obra</span>
+                <span class="text-[0.65rem] font-bold tracking-widest uppercase text-on-surface-variant">Reducción de tiempos de obra</span>
               </div>
               <div class="flex flex-col" reveal revealDirection="up" [revealDelay]="0.1">
                 <span class="text-4xl font-display font-bold text-on-tertiary-container mb-1">{{ qualityControl() }}%</span>
-                <span class="text-[0.65rem] font-bold tracking-widest uppercase text-white/60">Control de Calidad en fábrica</span>
+                <span class="text-[0.65rem] font-bold tracking-widest uppercase text-on-surface-variant">Control de Calidad en fábrica</span>
               </div>
               <div class="flex flex-col" reveal revealDirection="up" [revealDelay]="0.2">
                 <span class="text-4xl font-display font-bold text-on-tertiary-container mb-1">{{ experienceYears() }}+</span>
-                <span class="text-[0.65rem] font-bold tracking-widest uppercase text-white/60">Años de experiencia combinada</span>
+                <span class="text-[0.65rem] font-bold tracking-widest uppercase text-on-surface-variant">Años de experiencia combinada</span>
               </div>
             </div>
           </div>
@@ -160,7 +160,7 @@
               <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-white mb-8 leading-tight">
                 ¿NECESITA ESPECIFICACIONES TÉCNICAS O UN PRESUPUESTO? HABLE CON NUESTRO EQUIPO.
               </h2>
-              <p class="text-lg text-slate-300 mb-10 leading-relaxed">
+              <p class="text-lg text-white/70 mb-10 leading-relaxed">
                 Nuestro equipo de profesionales especializados le atenderá personalmente para estudiar las necesidades específicas de su proyecto y proponerle la solución óptima que maximice su rentabilidad, cumpla sus plazos y garantice la máxima calidad. Respuesta garantizada en menos de 24 horas laborables.
               </p>
               <a routerLink="/contacto" class="px-8 py-4 bg-on-tertiary-container text-white font-bold text-sm uppercase tracking-widest hover:bg-white hover:text-primary transition-all inline-flex items-center gap-2 group">
