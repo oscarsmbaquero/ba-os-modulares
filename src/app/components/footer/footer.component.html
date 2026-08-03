@@ -38,19 +38,33 @@
         <h3 class="text-[0.65rem] font-bold text-primary tracking-widest uppercase mb-6">Navegación</h3>
         <ul class="space-y-3">
           <li><a routerLink="/home"
+              routerLinkActive="text-primary font-semibold underline decoration-on-tertiary-container underline-offset-4"
+              [routerLinkActiveOptions]="{exact: true}"
               class="text-xs hover:text-primary transition-colors uppercase tracking-widest">Home</a></li>
           <li><a routerLink="/quienes"
+              routerLinkActive="text-primary font-semibold underline decoration-on-tertiary-container underline-offset-4"
+              [routerLinkActiveOptions]="{exact: true}"
               class="text-xs hover:text-primary transition-colors uppercase tracking-widest">Quiénes</a></li>
           <li><a routerLink="/que"
+              routerLinkActive="text-primary font-semibold underline decoration-on-tertiary-container underline-offset-4"
+              [routerLinkActiveOptions]="{exact: true}"
               class="text-xs hover:text-primary transition-colors uppercase tracking-widest">Qué</a></li>
           <li><a routerLink="/como"
+              routerLinkActive="text-primary font-semibold underline decoration-on-tertiary-container underline-offset-4"
+              [routerLinkActiveOptions]="{exact: true}"
               class="text-xs hover:text-primary transition-colors uppercase tracking-widest">Cómo</a></li>
           <li><a routerLink="/donde"
+              routerLinkActive="text-primary font-semibold underline decoration-on-tertiary-container underline-offset-4"
+              [routerLinkActiveOptions]="{exact: true}"
               class="text-xs hover:text-primary transition-colors uppercase tracking-widest">Dónde</a></li>
           <li><a routerLink="/cuando"
+              routerLinkActive="text-primary font-semibold underline decoration-on-tertiary-container underline-offset-4"
+              [routerLinkActiveOptions]="{exact: true}"
               class="text-xs hover:text-primary transition-colors uppercase tracking-widest">Cuándo</a></li>
           <li><a routerLink="/contacto"
-              class="text-xs text-on-tertiary-container hover:text-primary transition-colors uppercase tracking-widest font-bold">Contacto</a>
+              routerLinkActive="underline decoration-on-tertiary-container underline-offset-4"
+              [routerLinkActiveOptions]="{exact: true}"
+              class="text-xs hover:text-primary transition-colors uppercase tracking-widest">Contacto</a>
           </li>
         </ul>
       </div>
