@@ -1,6 +1,6 @@
  <div class="min-h-screen bg-surface">
       <!-- Hero Section -->
-      <div class="relative bg-gradient-to-br from-primary to-primary-container text-white overflow-hidden">
+      <!-- <div class="relative bg-gradient-to-br from-primary to-primary-container text-white overflow-hidden">
         <div class="absolute inset-0 opacity-20">
           <img src="https://picsum.photos/seed/factory-process/1920/1080?blur=2" alt="Proceso de fabricación" referrerpolicy="no-referrer" class="w-full h-full object-cover mix-blend-overlay" />
         </div>
@@ -23,7 +23,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- El Proceso Step-by-Step -->
       <div id="metodologia" class="py-24 bg-surface">
@@ -36,8 +36,11 @@
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <!-- Step 1 -->
             <div class="relative group" reveal revealDirection="up">
-              <div class="text-8xl font-display font-bold text-outline-variant/20 absolute -top-10 -left-4 group-hover:text-on-tertiary-container/10 transition-colors">01</div>
-              <div class="relative z-10 pt-8">
+              <div class="aspect-[4/3] overflow-hidden shadow-ambient border border-outline-variant/30 mb-6">
+                <img src="https://picsum.photos/seed/bim-design/600/450" alt="Ingeniería y Diseño" referrerpolicy="no-referrer" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+              </div>
+              <div class="absolute -top-4 -left-4 z-20 w-14 h-14 flex items-center justify-center bg-on-tertiary-container text-primary text-2xl font-display font-bold shadow-ambient">01</div>
+              <div class="relative z-10">
                 <h3 class="text-xl font-display font-bold text-primary mb-4 uppercase tracking-widest border-b border-on-tertiary-container pb-2 inline-block">Ingeniería y Diseño</h3>
                 <p class="text-sm text-on-surface-variant leading-relaxed">
                   Modelado BIM y CAD detallado. Definimos cada milímetro del módulo, desde la estructura hasta la última grifería, asegurando la integración total con el proyecto arquitectónico.
@@ -47,8 +50,11 @@
 
             <!-- Step 2 -->
             <div class="relative group" reveal revealDirection="up" [revealDelay]="0.1">
-              <div class="text-8xl font-display font-bold text-outline-variant/20 absolute -top-10 -left-4 group-hover:text-on-tertiary-container/10 transition-colors">02</div>
-              <div class="relative z-10 pt-8">
+              <div class="aspect-[4/3] overflow-hidden shadow-ambient border border-outline-variant/30 mb-6">
+                <img src="https://picsum.photos/seed/factory-assembly/600/450" alt="Fabricación Industrial" referrerpolicy="no-referrer" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+              </div>
+              <div class="absolute -top-4 -left-4 z-20 w-14 h-14 flex items-center justify-center bg-on-tertiary-container text-primary text-2xl font-display font-bold shadow-ambient">02</div>
+              <div class="relative z-10">
                 <h3 class="text-xl font-display font-bold text-primary mb-4 uppercase tracking-widest border-b border-on-tertiary-container pb-2 inline-block">Fabricación Industrial</h3>
                 <p class="text-sm text-on-surface-variant leading-relaxed">
                   Producción en entorno controlado. Ensamblaje de estructura, instalaciones y acabados bajo rigurosos estándares de calidad industrial, sin interferencias climáticas ni retrasos de obra.
@@ -58,8 +64,11 @@
 
             <!-- Step 3 -->
             <div class="relative group" reveal revealDirection="up" [revealDelay]="0.2">
-              <div class="text-8xl font-display font-bold text-outline-variant/20 absolute -top-10 -left-4 group-hover:text-on-tertiary-container/10 transition-colors">03</div>
-              <div class="relative z-10 pt-8">
+              <div class="aspect-[4/3] overflow-hidden shadow-ambient border border-outline-variant/30 mb-6">
+                <img src="https://picsum.photos/seed/module-transport/600/450" alt="Logística y Transporte" referrerpolicy="no-referrer" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+              </div>
+              <div class="absolute -top-4 -left-4 z-20 w-14 h-14 flex items-center justify-center bg-on-tertiary-container text-primary text-2xl font-display font-bold shadow-ambient">03</div>
+              <div class="relative z-10">
                 <h3 class="text-xl font-display font-bold text-primary mb-4 uppercase tracking-widest border-b border-on-tertiary-container pb-2 inline-block">Logística y Transporte</h3>
                 <p class="text-sm text-on-surface-variant leading-relaxed">
                   Protección total y transporte especializado. Cada módulo viaja perfectamente embalado y asegurado, llegando a la obra en el momento exacto de su instalación (Just-in-Time).
@@ -69,8 +78,11 @@
 
             <!-- Step 4 -->
             <div class="relative group" reveal revealDirection="up" [revealDelay]="0.3">
-              <div class="text-8xl font-display font-bold text-outline-variant/20 absolute -top-10 -left-4 group-hover:text-on-tertiary-container/10 transition-colors">04</div>
-              <div class="relative z-10 pt-8">
+              <div class="aspect-[4/3] overflow-hidden shadow-ambient border border-outline-variant/30 mb-6">
+                <img src="https://picsum.photos/seed/onsite-install/600/450" alt="Instalación y Conexión" referrerpolicy="no-referrer" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
+              </div>
+              <div class="absolute -top-4 -left-4 z-20 w-14 h-14 flex items-center justify-center bg-on-tertiary-container text-primary text-2xl font-display font-bold shadow-ambient">04</div>
+              <div class="relative z-10">
                 <h3 class="text-xl font-display font-bold text-primary mb-4 uppercase tracking-widest border-b border-on-tertiary-container pb-2 inline-block">Instalación y Conexión</h3>
                 <p class="text-sm text-on-surface-variant leading-relaxed">
                   Sistema Plug & Play. Izado directo a planta y conexión inmediata a las redes generales del edificio. Un baño completo operativo en cuestión de horas, no semanas.
