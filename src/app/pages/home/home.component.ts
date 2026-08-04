@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
       'name': '2IBM — Industrial Ibérica de Baños Modulares',
       'url': 'https://2ibm.es',
       'logo': 'https://2ibm.es/favicon.svg',
-      'description': 'Líderes en construcción modular de baños industriales de alta precisión.',
+      'description': 'Referentes en construcción modular de baños industriales de alta precisión.',
       'address': {
         '@type': 'PostalAddress',
         'streetAddress': 'C/ Alfonso Camargo, 16',
