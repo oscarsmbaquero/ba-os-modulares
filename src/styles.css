@@ -3,16 +3,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #292524;
-  --color-primary-container: #44403c;
+  --color-primary: #0f3f75;
+  --color-primary-container: #1e5a9c;
   --color-on-primary: #ffffff;
-  --color-on-primary-container: #d6d3d1;
-  --color-on-primary-fixed: #1c1917;
-  --color-on-primary-fixed-variant: #57534e;
-  --color-primary-fixed: #e7e5e4;
-  --color-primary-fixed-dim: #d6d3d1;
-  --color-inverse-primary: #d6d3d1;
-  --color-surface-tint: #78716c;
+  --color-on-primary-container: #cfe0f5;
+  --color-on-primary-fixed: #071c33;
+  --color-on-primary-fixed-variant: #1e5a9c;
+  --color-primary-fixed: #dbe8f8;
+  --color-primary-fixed-dim: #a9c6e8;
+  --color-inverse-primary: #a9c6e8;
+  --color-surface-tint: #1e5a9c;
 
   --color-secondary: #6b6560;
   --color-secondary-container: #e7e5e4;
@@ -111,7 +111,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gradient-primary {
-  background: linear-gradient(135deg, #292524 0%, #44403c 100%);
+  background: linear-gradient(135deg, #0f3f75 0%, #1e5a9c 100%);
 }
 
 .step-number-stroke {
@@ -147,7 +147,7 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   font-size: 0.625rem;
   letter-spacing: 0.1em;
-  background-color: #292524;
+  background-color: #0f3f75;
   color: #ffffff;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
