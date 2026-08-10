@@ -4,7 +4,6 @@ mkdirSync('./src/environments', { recursive: true });
 
 const config = `export const environment = {
   production: PROD,
-  geminiApiKey: '${process.env.GEMINI_API_KEY || ''}',
   otraVariable: '${process.env.OTRA_VARIABLE || ''}',
   urlApi: '${process.env.URL_API || ''}'
 };
