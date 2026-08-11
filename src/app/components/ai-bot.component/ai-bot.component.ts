@@ -9,9 +9,9 @@ interface ChatMessage {
   timestamp: Date;
 }
 
-interface GeminiContent {
-  role: 'user' | 'model';
-  parts: { text: string }[];
+interface ChatCompletionMessage {
+  role: 'user' | 'assistant';
+  content: string;
 }
 
 @Component({
@@ -27,16 +27,11 @@ export class AiBotComponent {
   userInput = '';
   isLoading = signal(false);
   
-  sendSuggested(text: string) {
-    this.userInput = text;
-    this.sendMessage();
-  }
-
   async sendMessage() {
     const text = this.userInput.trim();
     if (!text || this.isLoading()) return;
 
-    const history = this.toGeminiHistory(this.messages());
+    const history = this.toApiHistory(this.messages());
 
     // Add user message
     this.messages.update(msgs => [...msgs, {
@@ -55,6 +50,15 @@ export class AiBotComponent {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: text, history })
       });
+
+      if (res.status === 429) {
+        this.messages.update(msgs => [...msgs, {
+          role: 'bot',
+          content: 'Estamos recibiendo muchas consultas en este momento. Por favor, espere unos segundos y vuelva a intentarlo.',
+          timestamp: new Date()
+        }]);
+        return;
+      }
 
       if (!res.ok) {
         throw new Error(`Request failed with status ${res.status}`);
@@ -80,10 +84,10 @@ export class AiBotComponent {
     }
   }
 
-  private toGeminiHistory(msgs: ChatMessage[]): GeminiContent[] {
+  private toApiHistory(msgs: ChatMessage[]): ChatCompletionMessage[] {
     return msgs.map(msg => ({
-      role: msg.role === 'user' ? 'user' : 'model',
-      parts: [{ text: msg.content }]
+      role: msg.role === 'user' ? 'user' : 'assistant',
+      content: msg.content
     }));
   }
 

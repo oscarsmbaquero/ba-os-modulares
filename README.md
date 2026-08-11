@@ -15,7 +15,7 @@ View your app in AI Studio: https://ai.studio/apps/1150089f-4d35-4545-9fc6-198e2
 
 1. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+2. Set `GROQ_API_KEY`, `RESEND_API_KEY` and `LEAD_EMAIL_TO` in [.env.local](.env.local) (see [.env.example](.env.example))
 3. Run the app:
    - `npm run dev` for frontend-only work (the `/api/chat` endpoint won't be available)
    - `vercel dev` to also run the serverless functions locally (needed to test the AI chatbot end-to-end)
