@@ -18,7 +18,7 @@ Tu objetivo es captar leads cualificados y derivarlos al equipo comercial, ofrec
 
 - Empresa: Industrial Ibérica de Baños Modulares S.L. (2IBM)
 - Teléfono / WhatsApp: (+34) 613 237 832
-- Email: Gestion2ibm@gmail.com
+- Email: gestion2ibm@gmail.com
 - Horario: Lunes a Viernes, 8:00–17:00
 - Zona de venta: Península Ibérica
 - Modalidad: solo venta (no alquiler)
