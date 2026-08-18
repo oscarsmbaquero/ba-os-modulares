@@ -126,7 +126,7 @@ const RESEND_API_URL = 'https://api.resend.com/emails';
 const RESEND_FROM = 'onboarding@resend.dev';
 
 // El modelo, max_tokens y temperature los decide el server, no el cliente.
-const MODEL = 'llama-3.3-70b-versatile';
+const MODEL = 'openai/gpt-oss-20b';
 const MAX_TOKENS = 1000;
 const TEMPERATURE = 0.3;
 
@@ -199,6 +199,9 @@ async function callGroq(apiKey, messages, extra = {}) {
       messages,
       temperature: TEMPERATURE,
       max_tokens: MAX_TOKENS,
+      // gpt-oss es un modelo "razonador": sin esto puede agotar max_tokens
+      // pensando y devolver content vacío.
+      reasoning_effort: 'low',
       ...extra,
     }),
   });
