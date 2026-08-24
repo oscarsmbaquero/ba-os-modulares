@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port=3000 --host=0.0.0.0 --allowed-hosts all",
-    "dev": "cross-env ng serve --port=3000 --host=0.0.0.0 --allowed-hosts all ${DISABLE_HMR:+--live-reload=false}",
+    "start": "ng serve --port=3000 --host=0.0.0.0 --allowed-hosts",
+    "dev": "cross-env ng serve --port=3000 --host=0.0.0.0 --allowed-hosts ${DISABLE_HMR:+--live-reload=false}",
     "build": "node create-env.mjs && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",

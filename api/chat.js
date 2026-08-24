@@ -250,6 +250,38 @@ async function sendLeadEmail(lead) {
   }
 }
 
+async function sendClientConfirmationEmail(lead) {
+  const apiKey = process.env.RESEND_API_KEY;
+
+  if (!apiKey || !lead.email) {
+    return;
+  }
+
+  const response = await fetch(RESEND_API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      from: RESEND_FROM,
+      to: [lead.email],
+      subject: 'Hemos recibido tu consulta — 2IBM Baños Modulares',
+      html: `
+        <p>Hola${lead.nombre ? ' ' + escapeHtml(lead.nombre) : ''},</p>
+        <p>Gracias por contactar con Industrial Ibérica de Baños Modulares (2IBM). Hemos recibido tus datos correctamente y un comercial se pondrá en contacto contigo en breve.</p>
+        <p>Si lo necesitas, también puedes escribirnos a <a href="mailto:gestion2ibm@gmail.com">gestion2ibm@gmail.com</a> o por WhatsApp/teléfono al (+34) 613 237 832.</p>
+        <p>Un saludo,<br/>Equipo 2IBM</p>
+      `,
+    }),
+  });
+
+  if (!response.ok) {
+    const errorBody = await response.text();
+    console.error('Error enviando email de confirmación al cliente:', response.status, errorBody);
+  }
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.status(405).json({ error: 'Method not allowed' });
@@ -303,7 +335,10 @@ export default async function handler(req, res) {
           console.error('No se pudo parsear los argumentos del lead:', parseError);
         }
 
-        sendLeadEmail(lead).catch((error) => console.error('Error enviando email de lead:', error));
+        await Promise.all([
+          sendLeadEmail(lead).catch((error) => console.error('Error enviando email de lead:', error)),
+          sendClientConfirmationEmail(lead).catch((error) => console.error('Error enviando email de confirmación al cliente:', error)),
+        ]);
 
         messages.push({
           role: 'tool',
