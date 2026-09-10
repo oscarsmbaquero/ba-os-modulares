@@ -2,16 +2,24 @@
       <!-- Hero Section -->
       <div class="relative bg-white text-on-surface overflow-hidden">
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-24 lg:py-32">
-          <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-center">
-            <div class="relative w-[calc(100%+2rem)] -mx-4 sm:w-[calc(100%+3rem)] sm:-mx-6 lg:col-span-3 lg:w-[calc(100%+6rem)] lg:-ml-24 lg:mx-0" reveal revealDirection="right">
-              <div class="absolute -inset-4 bg-surface-container-low -z-10 blueprint-grid opacity-20"></div>
-              <div class="bg-surface p-1 sm:p-2 shadow-ambient border border-outline-variant/20">
-                <img src="https://res.cloudinary.com/dwczpxc0a/image/upload/v1785843017/ba%C3%B1o_prueba_i24itl.webp" alt="Construcción Industrializada" referrerpolicy="no-referrer" class="w-full h-auto object-cover" />
+          <div class="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-center lg:items-start">
+            <div class="lg:col-span-3">
+              <div class="relative w-[calc(100%+2rem)] -mx-4 sm:w-[calc(100%+3rem)] sm:-mx-6 lg:w-[calc(100%+6rem)] lg:-ml-24 lg:mx-0" reveal revealDirection="right">
+                <div class="absolute -inset-4 bg-surface-container-low -z-10 blueprint-grid opacity-20"></div>
+                <div class="bg-surface p-1 sm:p-2 shadow-ambient border border-outline-variant/20">
+                  <img src="https://res.cloudinary.com/dwczpxc0a/image/upload/v1785843017/ba%C3%B1o_prueba_i24itl.webp" alt="Construcción Industrializada" referrerpolicy="no-referrer" class="w-full h-auto object-cover" />
+                </div>
               </div>
-              <!-- <div class="absolute bottom-6 left-6 bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/30 px-4 py-2 flex items-center gap-2">
-                <mat-icon class="material-symbols-outlined text-on-tertiary-container text-sm w-4 h-4">location_on</mat-icon>
-                <span class="text-[0.65rem] font-bold tracking-widest uppercase text-on-surface-variant">Plasencia, Cáceres · España</span>
-              </div> -->
+              <div class="flex flex-wrap gap-4 mt-8 lg:mt-12">
+                <a routerLink="/que" class="px-8 py-4 bg-primary text-white font-bold text-sm uppercase tracking-widest hover:bg-primary-container transition-all border border-primary-container flex items-center gap-2 group">
+                  Ver Catálogo de Productos
+                  <mat-icon class="material-symbols-outlined text-on-tertiary-container group-hover:translate-x-1 transition-transform">grid_view</mat-icon>
+                </a>
+                <a routerLink="/contacto" class="px-8 py-4 bg-transparent text-primary font-bold text-sm uppercase tracking-widest hover:bg-on-surface/5 transition-all border border-outline-variant flex items-center gap-2 group">
+                  Solicitar Presupuesto
+                  <mat-icon class="material-symbols-outlined text-on-tertiary-container group-hover:translate-x-1 transition-transform">request_quote</mat-icon>
+                </a>
+              </div>
             </div>
 
             <div class="lg:col-span-2">
@@ -23,19 +31,9 @@
               <div class="inline-flex items-center gap-2 px-3 py-1 bg-on-tertiary-container rounded-sm mb-8">
                 <span class="text-[0.65rem] font-bold text-white tracking-widest uppercase">Construcción Industrializada</span>
               </div>
-              <p class="text-lg text-on-surface-variant leading-relaxed max-w-xl mb-10">
+              <p class="text-lg text-on-surface-variant leading-relaxed max-w-xl">
                 Fabricamos baños modulares completos en entorno industrial controlado. Eficiencia, calidad y precisión industrial al servicio de la construcción moderna. Soluciones que optimizan tiempos, costes y resultados finales para promotoras, constructoras e inversores del mercado español.
               </p>
-              <div class="flex flex-wrap gap-4">
-                <a routerLink="/que" class="px-8 py-4 bg-primary text-white font-bold text-sm uppercase tracking-widest hover:bg-primary-container transition-all border border-primary-container flex items-center gap-2 group">
-                  Ver Catálogo de Productos
-                  <mat-icon class="material-symbols-outlined text-on-tertiary-container group-hover:translate-x-1 transition-transform">grid_view</mat-icon>
-                </a>
-                <a routerLink="/contacto" class="px-8 py-4 bg-transparent text-primary font-bold text-sm uppercase tracking-widest hover:bg-on-surface/5 transition-all border border-outline-variant flex items-center gap-2 group">
-                  Solicitar Presupuesto
-                  <mat-icon class="material-symbols-outlined text-on-tertiary-container group-hover:translate-x-1 transition-transform">request_quote</mat-icon>
-                </a>
-              </div>
             </div>
           </div>
         </div>
