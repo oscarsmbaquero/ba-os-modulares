@@ -12,7 +12,7 @@ export class NavbarComponent {
   isMenuOpen = false;
   
   navItems = [
-    { path: '/home', label: 'Home', icon: 'home' },
+    { path: '/', label: 'Home', icon: 'home' },
     { path: '/quienes', label: 'Quiénes', icon: 'groups' },
     { path: '/que', label: 'Qué', icon: 'inventory_2' },
     { path: '/como', label: 'Cómo', icon: 'settings' },
