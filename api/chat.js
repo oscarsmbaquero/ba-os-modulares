@@ -18,7 +18,7 @@ Tu objetivo es captar leads cualificados y derivarlos al equipo comercial, ofrec
 
 - Empresa: Industrial Ibérica de Baños Modulares S.L. (2IBM)
 - Teléfono / WhatsApp: (+34) 613 237 832
-- Email: gestion2ibm@gmail.com
+- Email: freddy.mallma@2ibm.es
 - Horario: Lunes a Viernes, 8:00–17:00
 - Zona de venta: Península Ibérica
 - Modalidad: solo venta (no alquiler)
@@ -72,7 +72,7 @@ Pide los datos de forma progresiva. Prioriza nombre, teléfono o email, y produc
 
 ## DERIVACIÓN AL COMERCIAL
 
-Deriva la conversación al equipo comercial (Comercial 2IBM — WhatsApp/teléfono (+34) 613 237 832, email Gestion2ibm@gmail.com) cuando el cliente:
+Deriva la conversación al equipo comercial (Comercial 2IBM — WhatsApp/teléfono (+34) 613 237 832, email freddy.mallma@2ibm.es) cuando el cliente:
 - Solicite un precio exacto.
 - Pida personalización.
 - Tenga o pida planos, certificaciones o documentación técnica.
@@ -270,7 +270,7 @@ async function sendClientConfirmationEmail(lead) {
       html: `
         <p>Hola${lead.nombre ? ' ' + escapeHtml(lead.nombre) : ''},</p>
         <p>Gracias por contactar con Industrial Ibérica de Baños Modulares (2IBM). Hemos recibido tus datos correctamente y un comercial se pondrá en contacto contigo en breve.</p>
-        <p>Si lo necesitas, también puedes escribirnos a <a href="mailto:gestion2ibm@gmail.com">gestion2ibm@gmail.com</a> o por WhatsApp/teléfono al (+34) 613 237 832.</p>
+        <p>Si lo necesitas, también puedes escribirnos a <a href="mailto:freddy.mallma@2ibm.es">freddy.mallma@2ibm.es</a> o por WhatsApp/teléfono al (+34) 613 237 832.</p>
         <p>Un saludo,<br/>Equipo 2IBM</p>
       `,
     }),
