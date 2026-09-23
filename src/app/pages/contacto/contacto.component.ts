@@ -16,7 +16,8 @@ export class ContactoComponent implements OnInit {
 
   isSubmitting = signal(false);
   isSuccess = signal(false);
-  
+  isError = signal(false);
+
   formData = {
     nombre: '',
     empresa: '',
@@ -33,24 +34,39 @@ export class ContactoComponent implements OnInit {
     });
   }
 
-  onSubmit(event: Event) {
+  async onSubmit(event: Event) {
     event.preventDefault();
-    
+
     if (!this.formData.nombre || !this.formData.email || !this.formData.mensaje) {
       return;
     }
 
     this.isSubmitting.set(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      this.isSubmitting.set(false);
+    this.isError.set(false);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(this.formData)
+      });
+
+      if (!res.ok) {
+        throw new Error(`Request failed with status ${res.status}`);
+      }
+
       this.isSuccess.set(true);
-    }, 1500);
+    } catch (error) {
+      console.error('Error sending contact form:', error);
+      this.isError.set(true);
+    } finally {
+      this.isSubmitting.set(false);
+    }
   }
 
   resetForm() {
     this.isSuccess.set(false);
+    this.isError.set(false);
     this.formData = {
       nombre: '',
       empresa: '',

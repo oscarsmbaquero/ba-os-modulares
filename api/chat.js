@@ -1,3 +1,5 @@
+import { sendMail, escapeHtml } from './_lib/mailer.js';
+
 const SYSTEM_INSTRUCTION = `
 # SYSTEM PROMPT — 2IBM Asistente Modular
 
@@ -18,7 +20,7 @@ Tu objetivo es captar leads cualificados y derivarlos al equipo comercial, ofrec
 
 - Empresa: Industrial Ibérica de Baños Modulares S.L. (2IBM)
 - Teléfono / WhatsApp: (+34) 613 237 832
-- Email: freddy.mallma@2ibm.es
+- Email: info@2ibm.es
 - Horario: Lunes a Viernes, 8:00–17:00
 - Zona de venta: Península Ibérica
 - Modalidad: solo venta (no alquiler)
@@ -72,7 +74,7 @@ Pide los datos de forma progresiva. Prioriza nombre, teléfono o email, y produc
 
 ## DERIVACIÓN AL COMERCIAL
 
-Deriva la conversación al equipo comercial (Comercial 2IBM — WhatsApp/teléfono (+34) 613 237 832, email freddy.mallma@2ibm.es) cuando el cliente:
+Deriva la conversación al equipo comercial (Comercial 2IBM — WhatsApp/teléfono (+34) 613 237 832, email info@2ibm.es) cuando el cliente:
 - Solicite un precio exacto.
 - Pida personalización.
 - Tenga o pida planos, certificaciones o documentación técnica.
@@ -122,8 +124,6 @@ Al iniciar la conversación, saluda así (adaptando al idioma del cliente):
 `;
 
 const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
-const RESEND_API_URL = 'https://api.resend.com/emails';
-const RESEND_FROM = 'onboarding@resend.dev';
 
 // El modelo, max_tokens y temperature los decide el server, no el cliente.
 const MODEL = 'openai/gpt-oss-20b';
@@ -180,13 +180,6 @@ function isValidHistory(history) {
   return Array.isArray(history) && history.every(isValidTurn);
 }
 
-function escapeHtml(value) {
-  return String(value)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
-}
-
 async function callGroq(apiKey, messages, extra = {}) {
   const response = await fetch(GROQ_API_URL, {
     method: 'POST',
@@ -217,11 +210,10 @@ async function callGroq(apiKey, messages, extra = {}) {
 }
 
 async function sendLeadEmail(lead) {
-  const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.LEAD_EMAIL_TO;
 
-  if (!apiKey || !to) {
-    console.error('RESEND_API_KEY o LEAD_EMAIL_TO no configurados; no se envía el email del lead');
+  if (!to) {
+    console.error('LEAD_EMAIL_TO no configurado; no se envía el email del lead');
     return;
   }
 
@@ -230,56 +222,28 @@ async function sendLeadEmail(lead) {
     .map(([key, label]) => `<tr><td style="padding:4px 12px 4px 0;font-weight:bold">${label}</td><td style="padding:4px 0">${escapeHtml(lead[key])}</td></tr>`)
     .join('');
 
-  const response = await fetch(RESEND_API_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      from: RESEND_FROM,
-      to: [to],
-      subject: `Nuevo lead 2IBM${lead.nombre ? ' — ' + lead.nombre : ''}`,
-      html: `<h2>Nuevo lead desde el chatbot de 2IBM</h2><table>${rows}</table>`,
-    }),
+  await sendMail({
+    to,
+    subject: `Nuevo lead 2IBM${lead.nombre ? ' — ' + lead.nombre : ''}`,
+    html: `<h2>Nuevo lead desde el chatbot de 2IBM</h2><table>${rows}</table>`,
   });
-
-  if (!response.ok) {
-    const errorBody = await response.text();
-    console.error('Error enviando email con Resend:', response.status, errorBody);
-  }
 }
 
 async function sendClientConfirmationEmail(lead) {
-  const apiKey = process.env.RESEND_API_KEY;
-
-  if (!apiKey || !lead.email) {
+  if (!lead.email) {
     return;
   }
 
-  const response = await fetch(RESEND_API_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      from: RESEND_FROM,
-      to: [lead.email],
-      subject: 'Hemos recibido tu consulta — 2IBM Baños Modulares',
-      html: `
-        <p>Hola${lead.nombre ? ' ' + escapeHtml(lead.nombre) : ''},</p>
-        <p>Gracias por contactar con Industrial Ibérica de Baños Modulares (2IBM). Hemos recibido tus datos correctamente y un comercial se pondrá en contacto contigo en breve.</p>
-        <p>Si lo necesitas, también puedes escribirnos a <a href="mailto:freddy.mallma@2ibm.es">freddy.mallma@2ibm.es</a> o por WhatsApp/teléfono al (+34) 613 237 832.</p>
-        <p>Un saludo,<br/>Equipo 2IBM</p>
-      `,
-    }),
+  await sendMail({
+    to: lead.email,
+    subject: 'Hemos recibido tu consulta — 2IBM Baños Modulares',
+    html: `
+      <p>Hola${lead.nombre ? ' ' + escapeHtml(lead.nombre) : ''},</p>
+      <p>Gracias por contactar con Industrial Ibérica de Baños Modulares (2IBM). Hemos recibido tus datos correctamente y un comercial se pondrá en contacto contigo en breve.</p>
+      <p>Si lo necesitas, también puedes escribirnos a <a href="mailto:info@2ibm.es">info@2ibm.es</a> o por WhatsApp/teléfono al (+34) 613 237 832.</p>
+      <p>Un saludo,<br/>Equipo 2IBM</p>
+    `,
   });
-
-  if (!response.ok) {
-    const errorBody = await response.text();
-    console.error('Error enviando email de confirmación al cliente:', response.status, errorBody);
-  }
 }
 
 export default async function handler(req, res) {
