@@ -1,43 +1,33 @@
-import nodemailer from 'nodemailer';
-
-let transporter;
-
-function getTransporter() {
-  if (transporter) return transporter;
-
-  const host = process.env.SMTP_HOST || 'smtp.hostinger.com';
-  const port = Number(process.env.SMTP_PORT || 465);
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
-
-  if (!user || !pass) {
-    return null;
-  }
-
-  transporter = nodemailer.createTransport({
-    host,
-    port,
-    secure: port === 465,
-    auth: { user, pass },
-  });
-
-  return transporter;
-}
+const RESEND_API_URL = 'https://api.resend.com/emails';
 
 export async function sendMail({ to, subject, html, replyTo }) {
-  const transport = getTransporter();
-  if (!transport) {
-    console.error('SMTP_USER o SMTP_PASS no configurados; no se envía el email');
+  const apiKey = process.env.RESEND_API_KEY;
+  const from = process.env.RESEND_FROM || 'onboarding@resend.dev';
+
+  if (!apiKey) {
+    console.error('RESEND_API_KEY no configurada; no se envía el email');
     return { sent: false };
   }
 
-  await transport.sendMail({
-    from: `2IBM <${process.env.SMTP_USER}>`,
-    to,
-    replyTo,
-    subject,
-    html,
+  const response = await fetch(RESEND_API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      from: `2IBM <${from}>`,
+      to: [to],
+      reply_to: replyTo,
+      subject,
+      html,
+    }),
   });
+
+  if (!response.ok) {
+    const errorBody = await response.text();
+    throw new Error(`Resend API error ${response.status}: ${errorBody}`);
+  }
 
   return { sent: true };
 }
