@@ -151,18 +151,19 @@ const REGISTRAR_LEAD_TOOL = {
     name: 'registrar_lead',
     description:
       'Registra un lead (cliente potencial) para que el equipo comercial de 2IBM lo contacte. ' +
-      'Llámala una sola vez por conversación, únicamente cuando ya tengas como mínimo el nombre del cliente y un dato de contacto (teléfono o email).',
+      'Llámala una sola vez por conversación, únicamente cuando ya tengas como mínimo el nombre del cliente y un dato de contacto (teléfono o email). ' +
+      'IMPORTANTE: solo incluye los campos cuyo valor real te haya dado el cliente en la conversación. Nunca inventes valores ni uses texto de ejemplo o marcadores como "[Nombre]" o "[Email]" — si no tienes un dato, omite ese campo por completo en la llamada.',
     parameters: {
       type: 'object',
       properties: {
-        nombre: { type: 'string', description: 'Nombre del cliente' },
-        telefono: { type: 'string', description: 'Teléfono de contacto' },
-        email: { type: 'string', description: 'Email de contacto' },
-        producto_interes: { type: 'string', description: 'Modelo de interés: S3 o S5 Premium' },
-        ubicacion: { type: 'string', description: 'Ubicación u obra del proyecto' },
-        presupuesto: { type: 'string', description: 'Presupuesto aproximado' },
-        plazo: { type: 'string', description: 'Plazo estimado del proyecto' },
-        tipo_cliente: { type: 'string', description: 'Tipo de cliente: constructora, promotora, particular o arquitecto' },
+        nombre: { type: 'string', description: 'Nombre real del cliente, tal como lo escribió. Omitir el campo si no lo ha dado.' },
+        telefono: { type: 'string', description: 'Teléfono real de contacto, tal como lo escribió. Omitir el campo si no lo ha dado.' },
+        email: { type: 'string', description: 'Email real de contacto, tal como lo escribió. Omitir el campo si no lo ha dado.' },
+        producto_interes: { type: 'string', description: 'Modelo de interés: S3 o S5 Premium. Omitir el campo si no lo ha dicho.' },
+        ubicacion: { type: 'string', description: 'Ubicación u obra real del proyecto. Omitir el campo si no lo ha dado.' },
+        presupuesto: { type: 'string', description: 'Presupuesto aproximado real. Omitir el campo si no lo ha dado.' },
+        plazo: { type: 'string', description: 'Plazo estimado real del proyecto. Omitir el campo si no lo ha dado.' },
+        tipo_cliente: { type: 'string', description: 'Tipo de cliente real: constructora, promotora, particular o arquitecto. Omitir el campo si no lo ha dicho.' },
       },
       required: ['nombre'],
     },
@@ -207,6 +208,18 @@ async function callGroq(apiKey, messages, extra = {}) {
   }
 
   return response.json();
+}
+
+const isPlaceholderValue = (value) => /^\[.*\]$/.test(String(value).trim());
+
+function sanitizeLead(lead) {
+  const clean = {};
+  for (const [key, value] of Object.entries(lead ?? {})) {
+    if (typeof value === 'string' && value.trim() && !isPlaceholderValue(value)) {
+      clean[key] = value.trim();
+    }
+  }
+  return clean;
 }
 
 async function sendLeadEmail(lead) {
@@ -298,6 +311,7 @@ export default async function handler(req, res) {
         } catch (parseError) {
           console.error('No se pudo parsear los argumentos del lead:', parseError);
         }
+        lead = sanitizeLead(lead);
 
         await Promise.all([
           sendLeadEmail(lead).catch((error) => console.error('Error enviando email de lead:', error)),
