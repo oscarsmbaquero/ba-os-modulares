@@ -25,7 +25,7 @@ export class DondeComponent implements OnInit {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
       'name': '2IBM — Industrial Ibérica de Baños Modulares',
-      'image': 'https://2ibm.es/favicon.svg',
+      'image': 'https://www.2ibm.es/icon-512.png',
       'address': {
         '@type': 'PostalAddress',
         'streetAddress': 'C/ Alfonso Camargo, 16',

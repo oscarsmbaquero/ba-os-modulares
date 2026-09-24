@@ -31,8 +31,8 @@ export class HomeComponent implements OnInit {
       '@context': 'https://schema.org',
       '@type': 'Organization',
       'name': '2IBM — Industrial Ibérica de Baños Modulares',
-      'url': 'https://2ibm.es',
-      'logo': 'https://2ibm.es/favicon.svg',
+      'url': 'https://www.2ibm.es',
+      'logo': 'https://www.2ibm.es/icon-512.png',
       'description': 'Referentes en construcción modular de baños industriales de alta precisión.',
       'address': {
         '@type': 'PostalAddress',
